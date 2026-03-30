@@ -214,7 +214,10 @@ function showQ(){
   document.getElementById('taskLabel').textContent=`${t.emoji} ${t.kategorie} · Level ${t.level}`;
   document.getElementById('taskStory').textContent=t.story;
   document.getElementById('taskQ').textContent=t.frage;
-  document.getElementById('unitLbl').textContent=t.einheit;
+  const fmt0=fmtBetrag(parseInt(t.antwort), t.einheit);
+  document.getElementById('unitLbl').textContent=fmt0.einheit;
+  document.getElementById('ainput').placeholder = fmt0.factor===100 ? 'z.B. 3.80' : '?';
+  document.getElementById('ainput').step = fmt0.factor===100 ? '0.05' : '1';
   document.getElementById('feedback').textContent='';
   document.getElementById('feedback').className='feedback';
   document.getElementById('hint').textContent='';
@@ -225,21 +228,38 @@ function showQ(){
   setTimeout(()=>inp.focus(),80);
 }
 
+function fmtBetrag(rp, einheit){
+  if(einheit==='Rp.' && rp>=100){
+    const fr=Math.floor(rp/100), ct=rp%100;
+    return { val: (rp/100).toFixed(2), einheit:'CHF', factor:100 };
+  }
+  return { val: String(rp), einheit, factor:1 };
+}
+
 function checkAnswer(){
   const t=questions[current];
-  const v=parseInt(document.getElementById('ainput').value);
   const correct=parseInt(t.antwort);
+  const fmt=fmtBetrag(correct, t.einheit);
+  const raw=document.getElementById('ainput').value.trim().replace(',','.');
+  // Accept both CHF input (e.g. 3.80) and Rp input (380)
+  let v;
+  if(fmt.factor===100){
+    v=Math.round(parseFloat(raw)*100); // convert CHF → Rp for comparison
+  } else {
+    v=parseInt(raw);
+  }
   document.getElementById('ainput').disabled=true;
   document.getElementById('checkBtn').disabled=true;
   const ok=v===correct;
   if(ok) score++;
-  results.push({...t, given:v, ok});
+  const displayAns = fmt.factor===100 ? `CHF ${(correct/100).toFixed(2)}` : `${correct} ${t.einheit}`;
+  results.push({...t, given:raw, givenUnit: fmt.einheit, displayAns, ok});
   const fb=document.getElementById('feedback');
   if(ok){
     fb.textContent='✅ Richtig! Super gemacht!';
     fb.className='feedback ok';
   } else {
-    fb.textContent=`❌ Leider falsch. Richtige Antwort: ${correct} ${t.einheit}`;
+    fb.textContent=`❌ Leider falsch. Richtige Antwort: ${displayAns}`;
     fb.className='feedback nok';
     document.getElementById('hint').textContent=`💡 Tipp: ${t.tipp}`;
   }
@@ -268,8 +288,8 @@ function showResult(){
       <span><strong>${i+1}.</strong> ${t.story}<br>
       <em>${t.frage}</em><br>
       ${t.ok
-        ? `<span style="color:#16a34a">Deine Antwort: ${t.given} ${t.einheit} ✓</span>`
-        : `<span style="color:#dc2626">Deine Antwort: ${t.given} ${t.einheit} → Richtig: ${t.antwort} ${t.einheit}</span>`}
+        ? `<span style="color:#16a34a">Deine Antwort: ${t.given} ${t.givenUnit} ✓</span>`
+        : `<span style="color:#dc2626">Deine Antwort: ${t.given} ${t.givenUnit} → Richtig: ${t.displayAns}</span>`}
       </span></div>`;
   });
   document.getElementById('reviewList').innerHTML=html;
