@@ -1,0 +1,38 @@
+kategorie,emoji,level,story,frage,antwort,einheit,tipp
+Einkaufen,🛒,1,"Ein Brot kostet CHF 1.20. Du gibst der Kassiererin CHF 2.00.","Wie viel Rückgeld bekommst du?",80,Rp.,2.00 − 1.20
+Einkaufen,🛒,1,"Ein Apfel kostet 30 Rp. Du kaufst 3 Äpfel.","Was kostet das zusammen?",90,Rp.,3 × 30
+Einkaufen,🛒,1,"Du hast CHF 5.00. Du kaufst ein Sandwich für CHF 3.50.","Wie viel Geld hast du noch?",150,Rp.,5.00 − 3.50
+Einkaufen,🛒,2,"Ein Gipfeli kostet 90 Rp. Du kaufst 4 Stück.","Was musst du bezahlen?",360,Rp.,4 × 90
+Einkaufen,🛒,2,"Im Migros kostet ein Jogurt CHF 1.10 und ein Mineralwasser CHF 1.40.","Was kosten beide zusammen?",250,Rp.,1.10 + 1.40
+Einkaufen,🛒,2,"Du kaufst 3 Hefte à CHF 1.50. Du gibst CHF 5.00.","Wie viel Rückgeld bekommst du?",50,Rp.,5.00 − (3 × 1.50)
+Einkaufen,🛒,3,"An der Chilbi kaufst du 2 Zuckerwatte à CHF 3.50 und 1 Hotdog für CHF 4.50.","Was hast du insgesamt ausgegeben?",1150,Rp.,(2 × 3.50) + 4.50
+Einkaufen,🛒,3,"Du kaufst 5 Briefmarken à 85 Rp. und bezahlst mit CHF 5.00.","Wie viel Rückgeld erhältst du?",75,Rp.,5.00 − (5 × 0.85)
+Schule,🏫,1,"In deiner Klasse sind 18 Kinder. Heute fehlen 3 Kinder.","Wie viele Kinder sind heute in der Schule?",15,Kinder,18 − 3
+Schule,🏫,1,"Du hast 12 Buntstifte. Deine Freundin gibt dir 6 dazu.","Wie viele Stifte hast du jetzt?",18,Stifte,12 + 6
+Schule,🏫,1,"In der Pause isst du 4 von deinen 10 Guetzli auf.","Wie viele Guetzli hast du noch?",6,Guetzli,10 − 4
+Schule,🏫,2,"Im Schulzimmer gibt es 5 Tischreihen mit je 4 Stühlen.","Wie viele Stühle gibt es insgesamt?",20,Stühle,5 × 4
+Schule,🏫,2,"Du liest jeden Tag 8 Seiten. Wie viele Seiten liest du in 5 Tagen?","Wie viele Seiten liest du in 5 Tagen?",40,Seiten,5 × 8
+Schule,🏫,2,"In der Bibliothek stehen 45 Bücher. 17 sind ausgeliehen.","Wie viele Bücher sind noch da?",28,Bücher,45 − 17
+Schule,🏫,3,"Du sammelst Punkte: Mo 12, Di 15, Mi 9, Do 14. Fr schaffst du gleich viele wie Mo und Di zusammen.","Wie viele Punkte sammelst du am Freitag?",27,Punkte,12 + 15
+Schule,🏫,3,"Ein Schulheft hat 40 Seiten. Du hast in 3 Wochen je 8 Seiten beschrieben.","Wie viele Seiten sind noch leer?",16,Seiten,40 − (3 × 8)
+Ausflug,🚌,1,"Der Bus fährt um 8:15 Uhr ab. Die Fahrt dauert 20 Minuten.","Um wie viel Uhr (Minuten) kommt ihr an?",35,Min.,15 + 20
+Ausflug,🚌,1,"Auf dem Ausflug lauft ihr 4 km. Dann noch 3 km zurück.","Wie viele km lauft ihr insgesamt?",7,km,4 + 3
+Ausflug,🚌,2,"Das Billett kostet CHF 3.80 pro Kind. Es fahren 5 Kinder mit.","Was kosten alle Billette zusammen?",1900,Rp.,5 × 3.80
+Ausflug,🚌,2,"Bis zum Tierpark sind es 36 km. Ihr habt schon 19 km zurückgelegt.","Wie viele km fehlen noch?",17,km,36 − 19
+Ausflug,🚌,2,"Im Zoo seht ihr 8 Flamingos und doppelt so viele Pinguine.","Wie viele Pinguine gibt es?",16,Pinguine,8 × 2
+Ausflug,🚌,3,"3 Klassen fahren in den Ausflug. Jede Klasse hat 22 Kinder. Der Bus fasst 60 Personen.","Wie viele freie Plätze hat der Bus?",6,Plätze,60 − (3 × 22)
+Ausflug,🚌,3,"Ihr wandert 3 Etappen: 4.5 km + 3.8 km + 5.2 km.","Wie viele km wandert ihr insgesamt?",135,Zehntel-km,(45 + 38 + 52) ÷ 10
+Bauernhof,🐄,1,"Auf dem Bauernhof gibt es 6 Kühe und 4 Kälber.","Wie viele Tiere sind das zusammen?",10,Tiere,6 + 4
+Bauernhof,🐄,1,"Der Bauer hat 20 Eier. Er verkauft 8 davon.","Wie viele Eier hat er noch?",12,Eier,20 − 8
+Bauernhof,🐄,2,"Jede Kuh gibt 5 Liter Milch pro Tag. Der Bauer hat 7 Kühe.","Wie viele Liter Milch gibt es täglich?",35,Liter,7 × 5
+Bauernhof,🐄,2,"Im Obstgarten stehen 4 Reihen Kirschbäume mit je 6 Bäumen.","Wie viele Kirschbäume gibt es?",24,Bäume,4 × 6
+Bauernhof,🐄,2,"Ein Sack Kartoffeln wiegt 10 kg. Der Bauer füllt 8 Säcke.","Wie viele kg Kartoffeln sind das?",80,kg,8 × 10
+Bauernhof,🐄,3,"Der Bauer erntet 96 Äpfel. Er füllt Körbe mit je 8 Äpfeln.","Wie viele Körbe braucht er?",12,Körbe,96 ÷ 8
+Bauernhof,🐄,3,"Montag: 34 Eier, Dienstag: 28 Eier, Mittwoch: 31 Eier.","Wie viele Eier sind das insgesamt?",93,Eier,34 + 28 + 31
+Sport,⚽,1,"Beim Fussball schiesst dein Team 3 Tore. Das andere Team schiesst 2 Tore.","Wie viele Tore wurden insgesamt geschossen?",5,Tore,3 + 2
+Sport,⚽,1,"Du springst 8 Mal Seil. Deine Freundin springt 5 Mal mehr.","Wie oft springt deine Freundin?",13,Mal,8 + 5
+Sport,⚽,2,"Beim Schwimmen schwimmst du 6 Bahnen à 25 Meter.","Wie viele Meter schwimmst du insgesamt?",150,Meter,6 × 25
+Sport,⚽,2,"Beim Velorennen starten 24 Kinder. 7 müssen aufgeben.","Wie viele Kinder kommen ins Ziel?",17,Kinder,24 − 7
+Sport,⚽,2,"Du trainierst 4 Mal pro Woche je 45 Minuten.","Wie viele Minuten trainierst du pro Woche?",180,Minuten,4 × 45
+Sport,⚽,3,"Im Turnier spielt jede Mannschaft gegen jede andere. Es gibt 4 Mannschaften.","Wie viele Spiele gibt es insgesamt?",6,Spiele,4 × 3 ÷ 2
+Sport,⚽,3,"Lena läuft jeden Tag 200 Meter mehr als am Vortag. Am Montag läuft sie 400 Meter.","Wie weit läuft sie am Donnerstag?",1000,Meter,400 + (3 × 200)
