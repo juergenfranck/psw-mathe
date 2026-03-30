@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mathe-Übung</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4ff; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 16px; }
+  #app { background: white; border-radius: 24px; box-shadow: 0 4px 24px #0002; max-width: 520px; width: 100%; padding: 32px 28px; }
+
+  /* HEADER */
+  .header { text-align: center; margin-bottom: 24px; }
+  .header h1 { font-size: 2rem; color: #3a3aff; }
+  .header p { color: #666; font-size: 1rem; margin-top: 4px; }
+
+  /* PROGRESS */
+  .progress-bar-wrap { background: #e0e7ff; border-radius: 99px; height: 14px; margin-bottom: 8px; }
+  .progress-bar { background: linear-gradient(90deg,#3a3aff,#a78bfa); height: 14px; border-radius: 99px; transition: width .4s; }
+  .progress-info { display: flex; justify-content: space-between; font-size: .9rem; color: #555; margin-bottom: 20px; }
+  .score-badge { background: #fef9c3; border: 2px solid #fbbf24; border-radius: 12px; padding: 2px 14px; font-weight: bold; color: #92400e; }
+
+  /* TASK CARD */
+  .task-card { background: #f8f9ff; border: 2px solid #c7d2fe; border-radius: 18px; padding: 28px 20px; text-align: center; margin-bottom: 22px; }
+  .task-label { font-size: .8rem; font-weight: bold; letter-spacing: 1px; color: #7c3aed; text-transform: uppercase; margin-bottom: 8px; }
+  .task-question { font-size: 2rem; font-weight: bold; color: #1e1b4b; margin-bottom: 18px; line-height: 1.3; }
+
+  /* MULTIPLE CHOICE */
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .choice-btn { background: white; border: 2.5px solid #c7d2fe; border-radius: 14px; padding: 16px 8px; font-size: 1.4rem; font-weight: bold; color: #3730a3; cursor: pointer; transition: all .15s; }
+  .choice-btn:hover:not(:disabled) { background: #ede9fe; border-color: #7c3aed; transform: scale(1.04); }
+  .choice-btn.correct { background: #d1fae5; border-color: #10b981; color: #065f46; }
+  .choice-btn.wrong { background: #fee2e2; border-color: #ef4444; color: #991b1b; }
+  .choice-btn:disabled { cursor: default; }
+
+  /* INPUT */
+  .input-row { display: flex; gap: 10px; justify-content: center; margin-top: 4px; }
+  .answer-input { font-size: 1.6rem; width: 120px; text-align: center; border: 2.5px solid #c7d2fe; border-radius: 14px; padding: 10px; outline: none; }
+  .answer-input:focus { border-color: #7c3aed; }
+  .submit-btn { background: #3a3aff; color: white; border: none; border-radius: 14px; padding: 10px 22px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: background .15s; }
+  .submit-btn:hover { background: #2222cc; }
+
+  /* FEEDBACK */
+  .feedback { text-align: center; font-size: 1.2rem; font-weight: bold; margin-top: 14px; min-height: 32px; }
+  .feedback.ok { color: #10b981; }
+  .feedback.nok { color: #ef4444; }
+
+  /* NEXT BTN */
+  .next-btn { display: block; margin: 18px auto 0; background: #7c3aed; color: white; border: none; border-radius: 14px; padding: 13px 40px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+  .next-btn:hover { background: #5b21b6; }
+
+  /* RESULT SCREEN */
+  #result { text-align: center; display: none; }
+  #result h2 { font-size: 2rem; color: #3a3aff; margin-bottom: 8px; }
+  #result .big-score { font-size: 4rem; font-weight: bold; color: #7c3aed; margin: 16px 0 8px; }
+  #result .sub { color: #555; margin-bottom: 20px; }
+  .competency-list { text-align: left; background: #f8f9ff; border-radius: 14px; padding: 16px 20px; margin-bottom: 20px; }
+  .comp-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 1rem; }
+  .comp-bar-wrap { flex: 1; background: #e0e7ff; border-radius: 99px; height: 10px; }
+  .comp-bar { height: 10px; border-radius: 99px; background: #10b981; }
+  .comp-bar.mid { background: #fbbf24; }
+  .comp-bar.low { background: #ef4444; }
+  .comp-label { min-width: 160px; color: #333; font-size: .9rem; }
+  .restart-btn { background: #3a3aff; color: white; border: none; border-radius: 14px; padding: 14px 44px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+  .restart-btn:hover { background: #2222cc; }
+
+  /* START SCREEN */
+  #start { text-align: center; }
+  #start h2 { font-size: 1.6rem; color: #3a3aff; margin-bottom: 12px; }
+  #start p { color: #555; margin-bottom: 24px; line-height: 1.6; }
+  .start-btn { background: #3a3aff; color: white; border: none; border-radius: 14px; padding: 16px 52px; font-size: 1.2rem; font-weight: bold; cursor: pointer; }
+  .start-btn:hover { background: #2222cc; }
+  .emoji-big { font-size: 3.5rem; margin-bottom: 10px; display: block; }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- START -->
+  <div id="start">
+    <div class="header">
+      <h1>🧮 Mathe-Übung</h1>
+      <p>3. &amp; 4. Klasse</p>
+    </div>
+    <span class="emoji-big">🚀</span>
+    <h2>Bereit zum Rechnen?</h2>
+    <p>Du löst <strong>10 Aufgaben</strong> aus verschiedenen Mathe-Bereichen.<br>Am Ende siehst du, was du schon super kannst!</p>
+    <button class="start-btn" onclick="startGame()">Los geht's!</button>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz" style="display:none">
+    <div class="progress-bar-wrap"><div class="progress-bar" id="pbar" style="width:0%"></div></div>
+    <div class="progress-info">
+      <span id="qcount">Aufgabe 1 von 10</span>
+      <span class="score-badge">⭐ <span id="scoreDisp">0</span> Punkte</span>
+    </div>
+    <div class="task-card">
+      <div class="task-label" id="taskLabel"></div>
+      <div class="task-question" id="taskQ"></div>
+      <div id="taskInput"></div>
+    </div>
+    <div class="feedback" id="feedback"></div>
+    <button class="next-btn" id="nextBtn" style="display:none" onclick="nextQ()">Weiter →</button>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result">
+    <div class="header"><h1>🏆 Ergebnis</h1></div>
+    <div class="big-score" id="finalScore"></div>
+    <div class="sub" id="finalMsg"></div>
+    <div class="competency-list" id="compList"></div>
+    <button class="restart-btn" onclick="restartGame()">🔄 Nochmal spielen</button>
+  </div>
+
+</div>
+<script>
+// ── Helpers ──────────────────────────────────────────────────────────────
+const rnd = (a,b) => Math.floor(Math.random()*(b-a+1))+a;
+const shuffle = a => a.sort(()=>Math.random()-.5);
+
+// ── Task generators ───────────────────────────────────────────────────────
+const TYPES = ['add','sub','mul','compare','shape','money','clock','pattern'];
+
+function genTask(type) {
+  switch(type) {
+    case 'add': {
+      const a=rnd(1,99), b=rnd(1,99-a);
+      return { label:'➕ Addition', q:`${a} + ${b} = ?`, ans: a+b, comp:'1Aa/1Ab', input:'mc' };
+    }
+    case 'sub': {
+      const a=rnd(10,99), b=rnd(1,a);
+      return { label:'➖ Subtraktion', q:`${a} − ${b} = ?`, ans: a-b, comp:'1Aa/1Ab', input:'mc' };
+    }
+    case 'mul': {
+      const tbl=[2,5,10][rnd(0,2)], n=rnd(1,10);
+      return { label:'✖️ Einmaleins', q:`${tbl} × ${n} = ?`, ans: tbl*n, comp:'1Ac', input:'mc' };
+    }
+    case 'compare': {
+      const a=rnd(1,99), b=rnd(1,99);
+      const correct = a>b?'>':a<b?'<':'=';
+      const opts = shuffle(['>','<','=']).slice(0,3);
+      if(!opts.includes(correct)) opts[0]=correct;
+      return { label:'🔍 Vergleichen', q:`${a}  __  ${b}`, ans: correct, comp:'1Ba', input:'mc3', opts:shuffle(opts) };
+    }
+    case 'shape': {
+      const shapes=[
+        {name:'Kreis',emoji:'⭕',sides:0,q:'Wie viele Ecken hat ein Kreis?',a:'0'},
+        {name:'Dreieck',emoji:'🔺',sides:3,q:'Wie viele Ecken hat ein Dreieck?',a:'3'},
+        {name:'Viereck',emoji:'🟦',sides:4,q:'Wie viele Ecken hat ein Viereck?',a:'4'},
+        {name:'Kreis',emoji:'⭕',q:'Was ist rund und hat keine Ecken?',a:'Kreis'},
+        {name:'Dreieck',emoji:'🔺',q:'Welche Form hat 3 Seiten?',a:'Dreieck'},
+      ];
+      const s=shapes[rnd(0,shapes.length-1)];
+      let opts;
+      if(['0','3','4'].includes(s.a)) opts=shuffle(['0','3','4','6']).filter((_,i)=>i<4);
+      else opts=shuffle(['Kreis','Dreieck','Viereck','Sechseck']).filter((_,i)=>i<4);
+      if(!opts.includes(s.a)) opts[0]=s.a;
+      return { label:'📐 Formen', q:`${s.emoji}  ${s.q}`, ans: s.a, comp:'2Aa', input:'mc', opts:shuffle(opts) };
+    }
+    case 'money': {
+      const total=rnd(10,200); // Rappen
+      const fr=Math.floor(total/100), rp=total%100;
+      const display = fr>0 ? (rp>0 ? `Fr. ${fr}.${rp<10?'0'+rp:rp}` : `Fr. ${fr}.–`) : `${rp} Rp.`;
+      const wrong1=total+rnd(5,20), wrong2=total-rnd(5,20);
+      const opts=[total,wrong1>0?wrong1:total+25,wrong2>0?wrong2:total+10,total+rnd(30,50)];
+      const fmtRp = v => { const f=Math.floor(v/100),r=v%100; return f>0?(r>0?`Fr. ${f}.${r<10?'0'+r:r}`:`Fr. ${f}.–`):`${r} Rp.`; };
+      const choices=shuffle([...new Set(opts)]).slice(0,4).map(fmtRp);
+      if(!choices.includes(display)){ choices[0]=display; }
+      return { label:'💰 Geld', q:`Wie viel Geld ist das?\n${display}`, ans: display, comp:'3Aa', input:'mc', opts:shuffle(choices) };
+    }
+    case 'clock': {
+      const hrs=[1,2,3,4,5,6,7,8,9,10,11,12];
+      const h=hrs[rnd(0,11)], half=rnd(0,1)===1;
+      const timeStr = half ? `halb ${h===12?1:h+1}` : `${h} Uhr`;
+      const wrong1 = half ? `${h} Uhr` : `halb ${h===12?1:h+1}`;
+      const wrong2 = `${h===12?1:h+1} Uhr`;
+      const wrong3 = half ? `halb ${h===1?12:h-1}` : `halb ${h}`;
+      const opts=shuffle([timeStr, wrong1, wrong2, wrong3]);
+      return { label:'⏰ Uhr lesen', q:`Die Uhr zeigt ${timeStr}.\nWie spät ist es?`, ans: timeStr, comp:'3Ab', input:'mc', opts };
+    }
+    case 'pattern': {
+      const start=rnd(1,10), step=rnd(1,5);
+      const seq=[start,start+step,start+2*step,start+3*step];
+      const ans=start+4*step;
+      const opts=shuffle([ans,ans+step,ans-step,ans+2*step]).slice(0,4);
+      if(!opts.includes(ans)){opts[0]=ans;}
+      return { label:'🔢 Muster', q:`${seq.join(' , ')} , __?`, ans, comp:'1Bb', input:'mc', opts:shuffle(opts) };
+    }
+  }
+}
+
+// ── State ────────────────────────────────────────────────────────────────
+let questions=[], current=0, score=0, compScore={};
+const compNames={'1Aa/1Ab':'Rechnen bis 100','1Ac':'Einmaleins','1Ba':'Zahlen vergleichen','1Bb':'Muster erkennen','2Aa':'Formen kennen','3Aa':'Mit Geld rechnen','3Ab':'Uhr lesen'};
+
+function startGame(){
+  document.getElementById('start').style.display='none';
+  document.getElementById('quiz').style.display='block';
+  questions=[]; current=0; score=0; compScore={};
+  const pool=[];
+  TYPES.forEach(t=>pool.push(t,t)); // 2x each → 16, pick 10
+  shuffle(pool);
+  while(questions.length<10) questions.push(genTask(pool[questions.length]));
+  showQ();
+}
+
+function showQ(){
+  const t=questions[current];
+  document.getElementById('pbar').style.width=((current/10)*100)+'%';
+  document.getElementById('qcount').textContent=`Aufgabe ${current+1} von 10`;
+  document.getElementById('scoreDisp').textContent=score;
+  document.getElementById('taskLabel').textContent=t.label;
+  document.getElementById('taskQ').textContent=t.q;
+  document.getElementById('feedback').textContent='';
+  document.getElementById('feedback').className='feedback';
+  document.getElementById('nextBtn').style.display='none';
+
+  const inp=document.getElementById('taskInput');
+  if(t.input==='mc'||t.input==='mc3'){
+    const opts=t.opts||genMcOpts(t.ans);
+    inp.innerHTML=`<div class="choices" style="${t.input==='mc3'?'grid-template-columns:1fr 1fr 1fr':''}">
+      ${opts.map(o=>`<button class="choice-btn" onclick="checkMC(this,'${o}','${t.ans}','${t.comp}')">${o}</button>`).join('')}
+    </div>`;
+  } else {
+    inp.innerHTML=`<div class="input-row">
+      <input class="answer-input" id="ainput" type="number" placeholder="?" onkeydown="if(event.key==='Enter')checkInput('${t.ans}','${t.comp}')">
+      <button class="submit-btn" onclick="checkInput('${t.ans}','${t.comp}')">✓</button>
+    </div>`;
+    setTimeout(()=>document.getElementById('ainput')?.focus(),100);
+  }
+}
+
+function genMcOpts(ans){
+  const a=parseInt(ans);
+  const opts=new Set([a]);
+  while(opts.size<4){ const v=a+rnd(-10,10); if(v>=0&&v!==a) opts.add(v); }
+  return shuffle([...opts]);
+}
+
+function checkMC(btn, chosen, ans, comp){
+  const btns=btn.parentElement.querySelectorAll('.choice-btn');
+  btns.forEach(b=>b.disabled=true);
+  if(chosen===ans){
+    btn.classList.add('correct');
+    setFeedback(true,comp);
+  } else {
+    btn.classList.add('wrong');
+    btns.forEach(b=>{ if(b.textContent===ans) b.classList.add('correct'); });
+    setFeedback(false,comp);
+  }
+  document.getElementById('nextBtn').style.display='block';
+}
+
+function checkInput(ans, comp){
+  const v=document.getElementById('ainput').value.trim();
+  document.getElementById('ainput').disabled=true;
+  document.querySelector('.submit-btn').disabled=true;
+  if(v===String(ans)){
+    setFeedback(true,comp);
+  } else {
+    setFeedback(false,comp,ans);
+  }
+  document.getElementById('nextBtn').style.display='block';
+}
+
+function setFeedback(ok, comp, correctAns){
+  const fb=document.getElementById('feedback');
+  if(ok){
+    score++;
+    fb.textContent='✅ Super gemacht!';
+    fb.className='feedback ok';
+    if(!compScore[comp]) compScore[comp]={ok:0,total:0};
+    compScore[comp].ok++; compScore[comp].total++;
+  } else {
+    fb.textContent=`❌ Die richtige Antwort war: ${correctAns||''}`;
+    fb.className='feedback nok';
+    if(!compScore[comp]) compScore[comp]={ok:0,total:0};
+    compScore[comp].total++;
+  }
+  document.getElementById('scoreDisp').textContent=score;
+}
+
+function nextQ(){
+  current++;
+  if(current>=10) showResult();
+  else showQ();
+}
+
+function showResult(){
+  document.getElementById('quiz').style.display='none';
+  const r=document.getElementById('result');
+  r.style.display='block';
+  document.getElementById('finalScore').textContent=`${score} / 10`;
+  const msgs=['Weiter üben – du schaffst das! 💪','Gut gemacht! 🙂','Super! Fast perfekt! 🌟','Fantastisch – du bist ein Mathe-Star! 🏆'];
+  document.getElementById('finalMsg').textContent=msgs[score<=3?0:score<=6?1:score<=8?2:3];
+
+  let html='<strong>Deine Kompetenzen:</strong><br><br>';
+  for(const [comp,{ok,total}] of Object.entries(compScore)){
+    const pct=Math.round((ok/total)*100);
+    const cls=pct>=80?'':'pct>=50?mid:low';
+    const barCls=pct>=80?'':'pct>=50?"mid":"low"';
+    html+=`<div class="comp-row">
+      <span class="comp-label">${compNames[comp]||comp}</span>
+      <div class="comp-bar-wrap"><div class="comp-bar ${pct>=80?'':pct>=50?'mid':'low'}" style="width:${pct}%"></div></div>
+      <span style="min-width:36px;text-align:right;font-weight:bold;color:${pct>=80?'#10b981':pct>=50?'#d97706':'#ef4444'}">${pct}%</span>
+    </div>`;
+  }
+  document.getElementById('compList').innerHTML=html;
+}
+
+function restartGame(){
+  document.getElementById('result').style.display='none';
+  document.getElementById('start').style.display='block';
+}
+</script>
+</body>
+</html>
