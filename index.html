@@ -3,238 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mathe – Textaufgaben</title>
+<title>Mathe im Alltag</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f7f0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 16px; }
-  #app { background: white; border-radius: 24px; box-shadow: 0 4px 24px #0002; max-width: 540px; width: 100%; padding: 32px 28px; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f7f0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
+  #app{background:white;border-radius:24px;box-shadow:0 4px 24px #0002;max-width:560px;width:100%;padding:32px 28px}
 
-  .header { text-align: center; margin-bottom: 22px; }
-  .header h1 { font-size: 1.9rem; color: #166534; }
-  .header p { color: #666; font-size: .95rem; margin-top: 4px; }
+  /* HEADER */
+  .hdr{text-align:center;margin-bottom:20px}
+  .hdr h1{font-size:1.9rem;color:#166534}
+  .hdr p{color:#666;font-size:.95rem;margin-top:4px}
 
-  .progress-bar-wrap { background: #dcfce7; border-radius: 99px; height: 14px; margin-bottom: 8px; }
-  .progress-bar { background: linear-gradient(90deg,#16a34a,#86efac); height: 14px; border-radius: 99px; transition: width .4s; }
-  .progress-info { display: flex; justify-content: space-between; font-size: .9rem; color: #555; margin-bottom: 20px; }
-  .score-badge { background: #fef9c3; border: 2px solid #fbbf24; border-radius: 12px; padding: 2px 14px; font-weight: bold; color: #92400e; }
+  /* START SCREEN */
+  #start{text-align:center}
+  .big-emoji{font-size:3.2rem;display:block;margin-bottom:8px}
+  #start h2{font-size:1.45rem;color:#166534;margin-bottom:10px}
+  #start p{color:#555;line-height:1.6;margin-bottom:24px}
 
-  .task-card { background: #f0fdf4; border: 2px solid #bbf7d0; border-radius: 18px; padding: 26px 20px; margin-bottom: 18px; }
-  .task-label { font-size: .78rem; font-weight: bold; letter-spacing: 1px; color: #15803d; text-transform: uppercase; margin-bottom: 10px; }
-  .task-story { font-size: 1.15rem; color: #1a1a1a; line-height: 1.6; margin-bottom: 18px; }
-  .task-story .highlight { font-weight: bold; color: #15803d; }
-  .task-question { font-size: 1.25rem; font-weight: bold; color: #14532d; background: white; border-radius: 12px; padding: 12px 16px; border: 2px solid #bbf7d0; }
+  .option-group{margin-bottom:20px;text-align:left}
+  .option-group label{display:block;font-weight:bold;color:#333;margin-bottom:8px;font-size:1rem}
+  .btn-group{display:flex;gap:10px;flex-wrap:wrap}
+  .opt-btn{flex:1;min-width:80px;padding:12px 6px;border:2.5px solid #bbf7d0;border-radius:14px;background:white;font-size:1rem;font-weight:bold;color:#166534;cursor:pointer;transition:all .15s;text-align:center}
+  .opt-btn:hover{background:#f0fdf4;border-color:#16a34a}
+  .opt-btn.selected{background:#16a34a;color:white;border-color:#15803d}
+  .opt-btn .sub{font-size:.72rem;font-weight:normal;display:block;margin-top:2px;opacity:.85}
 
-  .input-row { display: flex; gap: 10px; justify-content: center; margin-top: 18px; align-items: center; }
-  .answer-input { font-size: 1.5rem; width: 130px; text-align: center; border: 2.5px solid #86efac; border-radius: 14px; padding: 10px; outline: none; }
-  .answer-input:focus { border-color: #16a34a; }
-  .unit-label { font-size: 1.1rem; color: #555; }
-  .submit-btn { background: #16a34a; color: white; border: none; border-radius: 14px; padding: 11px 22px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
-  .submit-btn:hover { background: #15803d; }
-  .submit-btn:disabled { background: #aaa; cursor: default; }
+  .start-btn{background:#16a34a;color:white;border:none;border-radius:14px;padding:15px 50px;font-size:1.15rem;font-weight:bold;cursor:pointer;margin-top:8px;opacity:.4;pointer-events:none;transition:all .2s}
+  .start-btn.ready{opacity:1;pointer-events:all}
+  .start-btn.ready:hover{background:#15803d}
 
-  .feedback { text-align: center; font-size: 1.15rem; font-weight: bold; margin-top: 14px; min-height: 30px; }
-  .feedback.ok { color: #16a34a; }
-  .feedback.nok { color: #dc2626; }
+  /* PROGRESS */
+  .prog-wrap{background:#dcfce7;border-radius:99px;height:14px;margin-bottom:8px}
+  .prog-bar{background:linear-gradient(90deg,#16a34a,#86efac);height:14px;border-radius:99px;transition:width .4s}
+  .prog-info{display:flex;justify-content:space-between;font-size:.9rem;color:#555;margin-bottom:18px}
+  .score-badge{background:#fef9c3;border:2px solid #fbbf24;border-radius:12px;padding:2px 14px;font-weight:bold;color:#92400e}
 
-  .hint { text-align: center; font-size: .95rem; color: #555; margin-top: 6px; min-height: 22px; }
+  /* TASK */
+  .task-card{background:#f0fdf4;border:2px solid #bbf7d0;border-radius:18px;padding:24px 20px;margin-bottom:16px}
+  .task-label{font-size:.78rem;font-weight:bold;letter-spacing:1px;color:#15803d;text-transform:uppercase;margin-bottom:10px}
+  .task-story{font-size:1.12rem;color:#1a1a1a;line-height:1.65;margin-bottom:16px}
+  .task-q{font-size:1.2rem;font-weight:bold;color:#14532d;background:white;border-radius:12px;padding:12px 16px;border:2px solid #bbf7d0}
 
-  .next-btn { display: block; margin: 16px auto 0; background: #15803d; color: white; border: none; border-radius: 14px; padding: 13px 40px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
-  .next-btn:hover { background: #14532d; }
+  .input-row{display:flex;gap:10px;justify-content:center;margin-top:16px;align-items:center}
+  .ans-input{font-size:1.5rem;width:130px;text-align:center;border:2.5px solid #86efac;border-radius:14px;padding:10px;outline:none}
+  .ans-input:focus{border-color:#16a34a}
+  .unit-lbl{font-size:1.05rem;color:#555;min-width:50px}
+  .check-btn{background:#16a34a;color:white;border:none;border-radius:14px;padding:11px 20px;font-size:1.05rem;font-weight:bold;cursor:pointer}
+  .check-btn:hover{background:#15803d}
+  .check-btn:disabled{background:#aaa;cursor:default}
 
-  /* START */
-  #start { text-align: center; }
-  #start .emoji-big { font-size: 3.5rem; display: block; margin-bottom: 10px; }
-  #start h2 { font-size: 1.5rem; color: #166534; margin-bottom: 10px; }
-  #start p { color: #555; line-height: 1.6; margin-bottom: 22px; }
-  .start-btn { background: #16a34a; color: white; border: none; border-radius: 14px; padding: 15px 50px; font-size: 1.15rem; font-weight: bold; cursor: pointer; }
-  .start-btn:hover { background: #15803d; }
+  .feedback{text-align:center;font-size:1.1rem;font-weight:bold;margin-top:12px;min-height:28px}
+  .feedback.ok{color:#16a34a}
+  .feedback.nok{color:#dc2626}
+  .hint{text-align:center;font-size:.92rem;color:#666;margin-top:5px;min-height:20px}
+
+  .next-btn{display:block;margin:14px auto 0;background:#15803d;color:white;border:none;border-radius:14px;padding:12px 38px;font-size:1.05rem;font-weight:bold;cursor:pointer}
+  .next-btn:hover{background:#14532d}
 
   /* RESULT */
-  #result { text-align: center; display: none; }
-  #result h2 { font-size: 1.8rem; color: #166534; }
-  .big-score { font-size: 3.8rem; font-weight: bold; color: #15803d; margin: 14px 0 6px; }
-  .sub { color: #555; margin-bottom: 20px; font-size: 1.05rem; }
-  .review-list { text-align: left; background: #f0fdf4; border-radius: 14px; padding: 16px 18px; margin-bottom: 20px; max-height: 280px; overflow-y: auto; }
-  .review-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; font-size: .92rem; line-height: 1.4; }
-  .review-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
-  .restart-btn { background: #16a34a; color: white; border: none; border-radius: 14px; padding: 13px 42px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
-  .restart-btn:hover { background: #15803d; }
+  #result{text-align:center;display:none}
+  #result h2{font-size:1.8rem;color:#166534}
+  .big-score{font-size:3.6rem;font-weight:bold;color:#15803d;margin:12px 0 6px}
+  .result-sub{color:#555;margin-bottom:18px;font-size:1.05rem}
+  .review-list{text-align:left;background:#f0fdf4;border-radius:14px;padding:14px 16px;margin-bottom:18px;max-height:260px;overflow-y:auto}
+  .rev-item{display:flex;gap:8px;align-items:flex-start;margin-bottom:10px;font-size:.9rem;line-height:1.45}
+  .rev-icon{font-size:1rem;flex-shrink:0;margin-top:2px}
+  .restart-btn{background:#16a34a;color:white;border:none;border-radius:14px;padding:13px 40px;font-size:1.05rem;font-weight:bold;cursor:pointer}
+  .restart-btn:hover{background:#15803d}
+
+  /* ERROR */
+  #errmsg{color:#dc2626;text-align:center;padding:20px;font-size:1rem;display:none}
 </style>
 </head>
 <body>
 <div id="app">
 
-<!-- START -->
-<div id="start">
-  <div class="header">
-    <h1>🌍 Mathe im Alltag</h1>
-    <p>Textaufgaben aus der Deutschschweiz</p>
-  </div>
-  <span class="emoji-big">🧃</span>
-  <h2>Bereit zum Rechnen?</h2>
-  <p>Du löst <strong>10 Aufgaben</strong> aus deinem Alltag:<br>
-  Einkaufen, Schule, Ausflug, Bauernhof und Sport.</p>
-  <button class="start-btn" onclick="startGame()">Los geht's! 🚀</button>
-</div>
+  <!-- START -->
+  <div id="start">
+    <div class="hdr"><h1>🌍 Mathe im Alltag</h1><p>Textaufgaben aus der Deutschschweiz</p></div>
+    <span class="big-emoji">🧃</span>
+    <h2>Wähle dein Level und los!</h2>
+    <p>Lies die Aufgaben genau durch und rechne im Kopf oder auf Papier.</p>
 
-<!-- QUIZ -->
-<div id="quiz" style="display:none">
-  <div class="progress-bar-wrap"><div class="progress-bar" id="pbar" style="width:0%"></div></div>
-  <div class="progress-info">
-    <span id="qcount">Aufgabe 1 von 10</span>
-    <span class="score-badge">⭐ <span id="scoreDisp">0</span> Punkte</span>
-  </div>
-  <div class="task-card">
-    <div class="task-label" id="taskLabel"></div>
-    <div class="task-story" id="taskStory"></div>
-    <div class="task-question" id="taskQ"></div>
-  </div>
-  <div class="input-row">
-    <input class="answer-input" id="ainput" type="number" placeholder="?" min="0" max="999">
-    <span class="unit-label" id="unitLabel"></span>
-    <button class="submit-btn" id="submitBtn" onclick="checkAnswer()">✓ Prüfen</button>
-  </div>
-  <div class="feedback" id="feedback"></div>
-  <div class="hint" id="hint"></div>
-  <button class="next-btn" id="nextBtn" style="display:none" onclick="nextQ()">Weiter →</button>
-</div>
+    <div class="option-group">
+      <label>🎯 Schwierigkeitsgrad:</label>
+      <div class="btn-group">
+        <button class="opt-btn" data-group="level" data-val="1" onclick="pick(this)">⭐ Level 1<span class="sub">Einfach</span></button>
+        <button class="opt-btn" data-group="level" data-val="2" onclick="pick(this)">⭐⭐ Level 2<span class="sub">Mittel</span></button>
+        <button class="opt-btn" data-group="level" data-val="3" onclick="pick(this)">⭐⭐⭐ Level 3<span class="sub">Knifflig</span></button>
+      </div>
+    </div>
 
-<!-- RESULT -->
-<div id="result">
-  <div class="header"><h1>🏅 Ergebnis</h1></div>
-  <div class="big-score" id="finalScore"></div>
-  <div class="sub" id="finalMsg"></div>
-  <div class="review-list" id="reviewList"></div>
-  <button class="restart-btn" onclick="restartGame()">🔄 Nochmal spielen</button>
-</div>
+    <div class="option-group">
+      <label>📋 Anzahl Aufgaben:</label>
+      <div class="btn-group">
+        <button class="opt-btn" data-group="count" data-val="10" onclick="pick(this)">10</button>
+        <button class="opt-btn" data-group="count" data-val="15" onclick="pick(this)">15</button>
+        <button class="opt-btn" data-group="count" data-val="20" onclick="pick(this)">20</button>
+      </div>
+    </div>
+
+    <button class="start-btn" id="startBtn" onclick="startGame()">Los geht's! 🚀</button>
+    <div id="errmsg"></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz" style="display:none">
+    <div class="prog-wrap"><div class="prog-bar" id="pbar" style="width:0%"></div></div>
+    <div class="prog-info">
+      <span id="qcount">Aufgabe 1</span>
+      <span class="score-badge">⭐ <span id="scoreDisp">0</span> Punkte</span>
+    </div>
+    <div class="task-card">
+      <div class="task-label" id="taskLabel"></div>
+      <div class="task-story" id="taskStory"></div>
+      <div class="task-q" id="taskQ"></div>
+    </div>
+    <div class="input-row">
+      <input class="ans-input" id="ainput" type="number" placeholder="?" min="0" max="9999">
+      <span class="unit-lbl" id="unitLbl"></span>
+      <button class="check-btn" id="checkBtn" onclick="checkAnswer()">✓ Prüfen</button>
+    </div>
+    <div class="feedback" id="feedback"></div>
+    <div class="hint" id="hint"></div>
+    <button class="next-btn" id="nextBtn" style="display:none" onclick="nextQ()">Weiter →</button>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result">
+    <div class="hdr"><h1>🏅 Ergebnis</h1></div>
+    <div class="big-score" id="finalScore"></div>
+    <div class="result-sub" id="finalMsg"></div>
+    <div class="review-list" id="reviewList"></div>
+    <button class="restart-btn" onclick="resetGame()">🔄 Nochmal spielen</button>
+  </div>
 
 </div>
 <script>
-const rnd = (a,b) => Math.floor(Math.random()*(b-a+1))+a;
-const shuffle = a => [...a].sort(()=>Math.random()-.5);
-const chf = v => {
-  if(v % 100 === 0) return `Fr. ${v/100}.–`;
-  return `Fr. ${Math.floor(v/100)}.${(v%100)<10?'0'+(v%100):(v%100)}`;
-};
-
-// ── Task pool (templates) ─────────────────────────────────────────────────
-// Each returns { label, story, question, ans, unit, hint, comp }
-const templates = [
-
-  // 🛒 EINKAUFEN
-  () => { const p=rnd(30,90)*5, g=rnd(p/5+1,20)*10*5;
-    return { label:'🛒 Einkaufen', story:`Du kaufst ein Brot im Migros. Es kostet <b>${chf(p)}</b>. Du gibst der Kassiererin <b>${chf(g)}</b>.`, question:'Wie viel Rückgeld bekommst du?', ans:(g-p), unit:'Rp.', hint:`Rechne: ${g} − ${p}`, comp:'1Ab' }; },
-
-  () => { const a=rnd(1,5), p=rnd(2,8)*10;
-    return { label:'🛒 Einkaufen', story:`Jogurt kostet <b>${chf(p)}</b> pro Becher. Du kaufst <b>${a} Becher</b>.`, question:'Was musst du insgesamt bezahlen?', ans:a*p, unit:'Rp.', hint:`Rechne: ${a} × ${p}`, comp:'1Ab' }; },
-
-  () => { const items=[{n:'Gipfeli',p:90},{n:'Sandwich',p:350},{n:'Apfel',p:60},{n:'Süssmost',p:180}];
-    const a=items[rnd(0,3)], b=items[rnd(0,3)];
-    return { label:'🛒 Einkaufen', story:`Du kaufst ein <b>${a.n}</b> (${chf(a.p)}) und einen <b>${b.n}</b> (${chf(b.p)}) am Kiosk.`, question:'Was kostet alles zusammen?', ans:a.p+b.p, unit:'Rp.', hint:`Rechne: ${a.p} + ${b.p}`, comp:'1Ab' }; },
-
-  () => { const total=rnd(3,9)*100, spend=rnd(1,total/100-1)*100;
-    return { label:'🛒 Einkaufen', story:`Du hast <b>${chf(total)}</b> Taschengeld. Du kaufst ein Heft für <b>${chf(spend)}</b>.`, question:'Wie viel Geld hast du noch?', ans:total-spend, unit:'Rp.', hint:`Rechne: ${total} − ${spend}`, comp:'1Ab' }; },
-
-  // 🏫 SCHULE / PAUSENPLATZ
-  () => { const k=rnd(3,6), c=rnd(2,5);
-    return { label:'🏫 Schule', story:`In deiner Klasse spielen <b>${k} Kinder</b> Fangis. Dann kommen noch <b>${c} Kinder</b> dazu.`, question:'Wie viele Kinder spielen jetzt?', ans:k+c, unit:'Kinder', hint:`Rechne: ${k} + ${c}`, comp:'1Aa' }; },
-
-  () => { const t=rnd(20,35), a=rnd(5,15);
-    return { label:'🏫 Schule', story:`In der Turnhalle liegen <b>${t} Bälle</b>. Die Lehrerin räumt <b>${a} Bälle</b> weg.`, question:'Wie viele Bälle liegen noch in der Halle?', ans:t-a, unit:'Bälle', hint:`Rechne: ${t} − ${a}`, comp:'1Aa' }; },
-
-  () => { const r=rnd(3,6), s=rnd(3,5);
-    return { label:'🏫 Schule', story:`Im Schulzimmer gibt es <b>${r} Tischreihen</b>. In jeder Reihe sitzen <b>${s} Kinder</b>.`, question:'Wie viele Kinder sind im Zimmer?', ans:r*s, unit:'Kinder', hint:`Rechne: ${r} × ${s}`, comp:'1Aa' }; },
-
-  () => { const n=[4,6,8,10,12,14][rnd(0,5)], step=2;
-    return { label:'🏫 Schule', story:`Die Klasse übt Weitspringen. Die Weiten sind: <b>${n} m, ${n+step} m, ${n+2*step} m, ${n+3*step} m, …</b>`, question:`Wie weit springt das nächste Kind, wenn das Muster weitergeht?`, ans:n+4*step, unit:'m', hint:`Jedes Mal + ${step}`, comp:'1Bb' }; },
-
-  // 🚌 ÖV / AUSFLUG
-  () => { const abf=rnd(8,11)*100, dauer=rnd(20,55);
-    const ank=abf+dauer*100; // stored as minutes*100 → misuse, use simple:
-    const h1=rnd(8,11), m1=rnd(1,5)*10, m2=m1+rnd(1,4)*10, h2=m2>=60?h1+1:h1, mm2=m2%60;
-    return { label:'🚌 Ausflug / ÖV', story:`Der Zug fährt um <b>${h1}:${m1<10?'0'+m1:m1} Uhr</b> ab. Die Fahrt dauert <b>${m2-m1} Minuten</b>.`, question:'Um wie viel Uhr kommt der Zug an? (nur Minuten eingeben)', ans:mm2===0?60:mm2, unit:'Min.', hint:`${m1} + ${m2-m1} = ?`, comp:'1Aa' }; },
-
-  () => { const tk=rnd(3,6), p=rnd(4,8)*100;
-    return { label:'🚌 Ausflug / ÖV', story:`Eine Klasse fährt mit dem Bus ins Schwimmbad. Das Billett kostet <b>${chf(p)}</b> pro Kind. Es fahren <b>${tk} Kinder</b> mit.`, question:'Was kosten alle Billette zusammen?', ans:tk*p, unit:'Rp.', hint:`Rechne: ${tk} × ${p}`, comp:'1Aa' }; },
-
-  () => { const ges=rnd(5,10)*10, schon=rnd(2,ges/10-1)*10;
-    return { label:'🚌 Ausflug / ÖV', story:`Bis zum Waldlager sind es <b>${ges} km</b>. Die Klasse ist schon <b>${schon} km</b> gefahren.`, question:'Wie viele Kilometer fehlen noch?', ans:ges-schon, unit:'km', hint:`Rechne: ${ges} − ${schon}`, comp:'1Aa' }; },
-
-  // 🐄 BAUERNHOF / NATUR
-  () => { const k=rnd(3,8), e=rnd(2,5);
-    return { label:'🐄 Bauernhof', story:`Auf dem Bauernhof Müller hat es <b>${k} Kühe</b>. Jede Kuh gibt <b>${e} Liter</b> Milch pro Tag.`, question:'Wie viele Liter Milch gibt es insgesamt?', ans:k*e, unit:'Liter', hint:`Rechne: ${k} × ${e}`, comp:'1Aa' }; },
-
-  () => { const h=rnd(10,30), g=rnd(3,h-2);
-    return { label:'🐄 Bauernhof', story:`Im Hühnerstall hat es <b>${h} Hühner</b>. Der Bauer verkauft <b>${g} Hühner</b> auf dem Markt.`, question:'Wie viele Hühner sind noch im Stall?', ans:h-g, unit:'Hühner', hint:`Rechne: ${h} − ${g}`, comp:'1Aa' }; },
-
-  () => { const r=rnd(3,7), a=rnd(2,5);
-    return { label:'🐄 Bauernhof', story:`Im Obstgarten stehen <b>${r} Reihen</b> Apfelbäume. In jeder Reihe stehen <b>${a} Bäume</b>.`, question:'Wie viele Apfelbäume gibt es insgesamt?', ans:r*a, unit:'Bäume', hint:`Rechne: ${r} × ${a}`, comp:'1Aa' }; },
-
-  () => { const start=rnd(5,15), step=rnd(2,5);
-    return { label:'🐄 Bauernhof', story:`Ein Bauer zählt seine Schafe jeden Tag. Er zählt: <b>${start}, ${start+step}, ${start+2*step}, ${start+3*step}, …</b>`, question:'Wie viele Schafe zählt er am nächsten Tag?', ans:start+4*step, unit:'Schafe', hint:`Jedes Mal + ${step}`, comp:'1Bb' }; },
-
-  // ⚽ SPORT / FREIZEIT
-  () => { const t=rnd(2,5), p=rnd(2,5);
-    return { label:'⚽ Sport & Freizeit', story:`Beim Fussball schiesst Team A <b>${t} Tore</b> und Team B <b>${p} Tore</b>.`, question:'Wie viele Tore wurden insgesamt geschossen?', ans:t+p, unit:'Tore', hint:`Rechne: ${t} + ${p}`, comp:'1Aa' }; },
-
-  () => { const r=rnd(3,8), d=rnd(100,500);
-    return { label:'⚽ Sport & Freizeit', story:`Beim Schwimmkurs schwimmt Lena jede Woche <b>${r} Bahnen</b>. Eine Bahn ist <b>${d===500?50:25} Meter</b> lang.`, question:'Wie viele Meter schwimmt sie pro Woche?', ans:r*(d===500?50:25), unit:'Meter', hint:`Rechne: ${r} × ${d===500?50:25}`, comp:'1Aa' }; },
-
-  () => { const p=rnd(10,30), g=rnd(3,p-2);
-    return { label:'⚽ Sport & Freizeit', story:`Beim Velorennen starten <b>${p} Kinder</b>. Leider müssen <b>${g} Kinder</b> aufgeben.`, question:'Wie viele Kinder kommen ins Ziel?', ans:p-g, unit:'Kinder', hint:`Rechne: ${p} − ${g}`, comp:'1Ab' }; },
-
-  () => { const base=rnd(2,8)*5, step=5;
-    return { label:'⚽ Sport & Freizeit', story:`Beim Seilspringen zählt Noemi: <b>${base}, ${base+step}, ${base+2*step}, ${base+3*step}, …</b> Sprünge mehr pro Tag.`, question:'Wie viele Sprünge schafft sie am 5. Tag?', ans:base+4*step, unit:'Sprünge', hint:`Jedes Mal + ${step}`, comp:'1Bb' }; },
-];
+// ── Config ────────────────────────────────────────────────────────────────
+const CSV_FILE = 'aufgaben.csv'; // liegt im gleichen Ordner auf GitHub
 
 // ── State ─────────────────────────────────────────────────────────────────
-let questions=[], current=0, score=0, results=[];
+let allTasks=[], questions=[], current=0, score=0, results=[];
+let selLevel=null, selCount=null;
 
-function startGame(){
+// ── CSV laden ─────────────────────────────────────────────────────────────
+async function loadCSV(){
+  const r = await fetch(CSV_FILE);
+  if(!r.ok) throw new Error('CSV nicht gefunden');
+  const txt = await r.text();
+  const lines = txt.trim().split('\n');
+  const headers = lines[0].split(',').map(h=>h.trim());
+  return lines.slice(1).map(line=>{
+    // Handle commas inside quotes
+    const cols = [];
+    let cur='', inQ=false;
+    for(let c of line){
+      if(c==='"') inQ=!inQ;
+      else if(c===',' && !inQ){ cols.push(cur.trim()); cur=''; }
+      else cur+=c;
+    }
+    cols.push(cur.trim());
+    const obj={};
+    headers.forEach((h,i)=>obj[h]=cols[i]||'');
+    return obj;
+  });
+}
+
+// ── UI Helpers ────────────────────────────────────────────────────────────
+function pick(btn){
+  const g=btn.dataset.group;
+  document.querySelectorAll(`[data-group="${g}"]`).forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  if(g==='level') selLevel=parseInt(btn.dataset.val);
+  if(g==='count') selCount=parseInt(btn.dataset.val);
+  if(selLevel && selCount) document.getElementById('startBtn').classList.add('ready');
+}
+
+function shuffle(a){ return [...a].sort(()=>Math.random()-.5); }
+
+// ── Game ──────────────────────────────────────────────────────────────────
+async function startGame(){
+  const err=document.getElementById('errmsg');
+  err.style.display='none';
+  if(!allTasks.length){
+    try{ allTasks=await loadCSV(); }
+    catch(e){
+      err.textContent='⚠️ Aufgaben konnten nicht geladen werden. Ist die Datei "aufgaben.csv" im gleichen Ordner?';
+      err.style.display='block'; return;
+    }
+  }
+  const pool=allTasks.filter(t=>parseInt(t.level)===selLevel);
+  if(pool.length < selCount){
+    err.textContent=`⚠️ Zu wenige Aufgaben für Level ${selLevel} (${pool.length} vorhanden, ${selCount} gewünscht). Bitte CSV ergänzen.`;
+    err.style.display='block'; return;
+  }
+  questions=shuffle(pool).slice(0,selCount);
+  current=0; score=0; results=[];
   document.getElementById('start').style.display='none';
   document.getElementById('quiz').style.display='block';
-  questions=[]; current=0; score=0; results=[];
-  const pool=shuffle(templates).slice(0,10).map(fn=>fn());
-  questions=pool;
   showQ();
 }
 
 function showQ(){
   const t=questions[current];
-  document.getElementById('pbar').style.width=((current/10)*100)+'%';
-  document.getElementById('qcount').textContent=`Aufgabe ${current+1} von 10`;
+  const pct=Math.round((current/questions.length)*100);
+  document.getElementById('pbar').style.width=pct+'%';
+  document.getElementById('qcount').textContent=`Aufgabe ${current+1} von ${questions.length}`;
   document.getElementById('scoreDisp').textContent=score;
-  document.getElementById('taskLabel').textContent=t.label;
-  document.getElementById('taskStory').innerHTML=t.story;
-  document.getElementById('taskQ').textContent=t.question;
-  document.getElementById('unitLabel').textContent=t.unit;
+  document.getElementById('taskLabel').textContent=`${t.emoji} ${t.kategorie} · Level ${t.level}`;
+  document.getElementById('taskStory').textContent=t.story;
+  document.getElementById('taskQ').textContent=t.frage;
+  document.getElementById('unitLbl').textContent=t.einheit;
   document.getElementById('feedback').textContent='';
   document.getElementById('feedback').className='feedback';
   document.getElementById('hint').textContent='';
   document.getElementById('nextBtn').style.display='none';
   const inp=document.getElementById('ainput');
   inp.value=''; inp.disabled=false;
-  document.getElementById('submitBtn').disabled=false;
-  setTimeout(()=>inp.focus(),100);
+  document.getElementById('checkBtn').disabled=false;
+  setTimeout(()=>inp.focus(),80);
 }
 
 function checkAnswer(){
   const t=questions[current];
   const v=parseInt(document.getElementById('ainput').value);
+  const correct=parseInt(t.antwort);
   document.getElementById('ainput').disabled=true;
-  document.getElementById('submitBtn').disabled=true;
-  const ok=v===t.ans;
+  document.getElementById('checkBtn').disabled=true;
+  const ok=v===correct;
   if(ok) score++;
   results.push({...t, given:v, ok});
   const fb=document.getElementById('feedback');
   if(ok){
     fb.textContent='✅ Richtig! Super gemacht!';
     fb.className='feedback ok';
-    document.getElementById('hint').textContent='';
   } else {
-    fb.textContent=`❌ Leider falsch. Die richtige Antwort ist: ${t.ans} ${t.unit}`;
+    fb.textContent=`❌ Leider falsch. Richtige Antwort: ${correct} ${t.einheit}`;
     fb.className='feedback nok';
-    document.getElementById('hint').textContent=`💡 Tipp: ${t.hint}`;
+    document.getElementById('hint').textContent=`💡 Tipp: ${t.tipp}`;
   }
   document.getElementById('scoreDisp').textContent=score;
   document.getElementById('nextBtn').style.display='block';
@@ -242,7 +249,7 @@ function checkAnswer(){
 
 function nextQ(){
   current++;
-  if(current>=10) showResult();
+  if(current>=questions.length) showResult();
   else showQ();
 }
 
@@ -250,31 +257,33 @@ function showResult(){
   document.getElementById('quiz').style.display='none';
   const r=document.getElementById('result');
   r.style.display='block';
-  document.getElementById('finalScore').textContent=`${score} / 10`;
-  const msgs=['Weiter üben – du schaffst das! 💪','Nicht schlecht! Übe weiter! 🙂','Sehr gut gemacht! 🌟','Fantastisch – du bist ein Mathe-Star! 🏆'];
-  document.getElementById('finalMsg').textContent=msgs[score<=3?0:score<=6?1:score<=8?2:3];
-
+  document.getElementById('finalScore').textContent=`${score} / ${questions.length}`;
+  const pct=score/questions.length;
+  const msgs=['Weiter üben – du schaffst das! 💪','Nicht schlecht, übe weiter! 🙂','Sehr gut gemacht! 🌟','Fantastisch – du bist ein Mathe-Star! 🏆'];
+  document.getElementById('finalMsg').textContent=msgs[pct<.4?0:pct<.7?1:pct<.95?2:3];
   let html='';
   results.forEach((t,i)=>{
-    html+=`<div class="review-item">
-      <span class="review-icon">${t.ok?'✅':'❌'}</span>
-      <span><strong>Aufgabe ${i+1}:</strong> ${t.story.replace(/<[^>]+>/g,'')} → <em>${t.question}</em><br>
-      ${t.ok?`Deine Antwort: <b>${t.given} ${t.unit}</b> ✓`:`Deine Antwort: <b>${t.given} ${t.unit}</b> → Richtig: <b>${t.ans} ${t.unit}</b>`}
-      </span>
-    </div>`;
+    html+=`<div class="rev-item">
+      <span class="rev-icon">${t.ok?'✅':'❌'}</span>
+      <span><strong>${i+1}.</strong> ${t.story}<br>
+      <em>${t.frage}</em><br>
+      ${t.ok
+        ? `<span style="color:#16a34a">Deine Antwort: ${t.given} ${t.einheit} ✓</span>`
+        : `<span style="color:#dc2626">Deine Antwort: ${t.given} ${t.einheit} → Richtig: ${t.antwort} ${t.einheit}</span>`}
+      </span></div>`;
   });
   document.getElementById('reviewList').innerHTML=html;
 }
 
-function restartGame(){
+function resetGame(){
   document.getElementById('result').style.display='none';
   document.getElementById('start').style.display='block';
 }
 
-document.addEventListener('keydown', e=>{
+document.addEventListener('keydown',e=>{
   if(e.key==='Enter'){
     if(document.getElementById('nextBtn').style.display!=='none') nextQ();
-    else if(!document.getElementById('submitBtn').disabled) checkAnswer();
+    else if(!document.getElementById('checkBtn').disabled) checkAnswer();
   }
 });
 </script>
