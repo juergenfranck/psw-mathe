@@ -3,7 +3,7 @@ Einkaufen,🛒,1,"Ein Brot kostet CHF 1.20. Du gibst der Kassiererin CHF 2.00.",
 Einkaufen,🛒,1,"Ein Apfel kostet 30 Rp. Du kaufst 3 Äpfel.","Was kostet das zusammen?",90,Rp.,3 × 30
 Einkaufen,🛒,1,"Du hast CHF 5.00. Du kaufst ein Sandwich für CHF 3.50.","Wie viel Geld hast du noch?",150,Rp.,500 − 350
 Einkaufen,🛒,1,"Ein Kaugummi kostet 20 Rp. Du kaufst 4 Stück.","Was kostet das zusammen?",80,Rp.,4 × 20
-Einkaufen,🛒,1,"Du hast CHF 2.00. Ein Riegel kostet 60 Rp.","Wie viel Geld hast du nach dem Kauf noch?",140,Rp.,200 − 60
+Einkaufen,🛒,1,"Du hast CHF 2.00. Ein Riegel kostet 60 Rp. Du kaufst 3 Stück.","Wie viel Geld hast du nach dem Kauf noch?",20,Rp.,200 − (3 x 60)
 Einkaufen,🛒,1,"Im Kiosk kostet ein Apfelsaft 90 Rp. Du gibst CHF 1.00.","Wie viel Rückgeld bekommst du?",10,Rp.,100 − 90
 Einkaufen,🛒,1,"Ein Bleistift kostet 50 Rp. Du kaufst 2 Bleistifte.","Was kostet das zusammen?",100,Rp.,2 × 50
 Einkaufen,🛒,1,"Du hast CHF 3.00. Du kaufst ein Heft für CHF 1.50.","Wie viel Geld hast du noch?",150,Rp.,300 − 150
@@ -11,22 +11,22 @@ Einkaufen,🛒,2,"Ein Gipfeli kostet 90 Rp. Du kaufst 4 Stück.","Was musst du b
 Einkaufen,🛒,2,"Im Migros kostet ein Jogurt CHF 1.10 und ein Mineralwasser CHF 1.40.","Was kosten beide zusammen?",250,Rp.,110 + 140
 Einkaufen,🛒,2,"Du kaufst 3 Hefte à CHF 1.50. Du gibst CHF 5.00.","Wie viel Rückgeld bekommst du?",50,Rp.,500 − (3 × 150)
 Einkaufen,🛒,2,"Ein Znüni-Paket kostet CHF 2.40. Du kaufst 3 Pakete.","Was kostet das insgesamt?",720,Rp.,3 × 240
-Einkaufen,🛒,2,"Du kaufst eine Flasche Wasser für CHF 1.80 und einen Riegel für 70 Rp.","Was bezahlst du insgesamt?",250,Rp.,180 + 70
-Einkaufen,🛒,2,"Ein Buch kostet CHF 4.50. Du gibst CHF 10.00.","Wie viel Rückgeld bekommst du?",550,Rp.,1000 − 450
+Einkaufen,🛒,2,"Du kaufst eine Flasche Wasser für CHF 1.80 und einen Riegel für 70 Rp.","Wie viel bezahlst du insgesamt?",250,Rp.,180 + 70
+Einkaufen,🛒,2,"Ein Buch kostet CHF 4.50. Du gibst CHF 10.00.","Wie viel Rückgeld (in Rappen) bekommst du?",550,Rp.,1000 − 450
 Einkaufen,🛒,2,"Du kaufst 5 Briefmarken à 85 Rp.","Was kosten alle Briefmarken zusammen?",425,Rp.,5 × 85
-Einkaufen,🛒,2,"Im Volg kostet ein Becher Erdbeeren CHF 3.20. Du kaufst 2 Becher.","Was musst du bezahlen?",640,Rp.,2 × 320
-Einkaufen,🛒,3,"An der Chilbi kaufst du 2 Zuckerwatte à CHF 3.50 und 1 Hotdog für CHF 4.50.","Was hast du insgesamt ausgegeben?",1150,Rp.,(2 × 350) + 450
+Einkaufen,🛒,2,"Im Volg kostet ein Becher Erdbeeren CHF 3.20. Du kaufst 2 Becher.","Was musst du bezahlen?",6.40,Fr.,2 × 320
+Einkaufen,🛒,3,"An der Chilbi kaufst du 2 Zuckerwatte à CHF 3.50 und 1 Hotdog für CHF 4.50.","Was hast du insgesamt ausgegeben?",11.50,Fr..,(2 × 350) + 450
 Einkaufen,🛒,3,"Du kaufst 5 Briefmarken à 85 Rp. und bezahlst mit CHF 5.00.","Wie viel Rückgeld erhältst du?",75,Rp.,500 − (5 × 85)
-Einkaufen,🛒,3,"Ein Schulranzen kostet CHF 48.00. Du hast bereits CHF 29.50 gespart.","Wie viel Geld fehlt dir noch?",1850,Rp.,4800 − 2950
-Einkaufen,🛒,3,"Du kaufst 4 Hefte à CHF 1.20 und einen Klebstift für CHF 2.40.","Was kostet alles zusammen?",720,Rp.,(4 × 120) + 240
-Einkaufen,🛒,3,"Im Sportgeschäft kosten Socken CHF 3.90 das Paar. Du kaufst 3 Paar.","Was musst du bezahlen?",1170,Rp.,3 × 390
-Einkaufen,🛒,3,"Du hast CHF 20.00. Du kaufst ein T-Shirt für CHF 12.50 und eine Kappe für CHF 5.90.","Wie viel Geld hast du noch?",160,Rp.,2000 − 1250 − 590
+Einkaufen,🛒,3,"Ein Schulranzen kostet CHF 48.00. Du hast bereits CHF 29.50 gespart.","Wie viel Geld fehlt dir noch?",18.50,Fr.,4800 − 2950
+Einkaufen,🛒,3,"Du kaufst 4 Hefte à CHF 1.20 und einen Klebstift für CHF 2.40.","Was kostet alles zusammen?",7.20,Fr.,(4 × 120) + 240
+Einkaufen,🛒,3,"Im Sportgeschäft kosten Socken CHF 3.90 das Paar. Du kaufst 3 Paar.","Was musst du bezahlen?",11.70,Fr..,3 × 390
+Einkaufen,🛒,3,"Du hast CHF 20.00. Du kaufst ein T-Shirt für CHF 12.50 und eine Kappe für CHF 5.90.","Wie viel Geld hast du noch?",1.60,Fr.,2000 − 1250 − 590
 Schule,🏫,1,"In deiner Klasse sind 18 Kinder. Heute fehlen 3 Kinder.","Wie viele Kinder sind heute in der Schule?",15,Kinder,18 − 3
 Schule,🏫,1,"Du hast 12 Buntstifte. Deine Freundin gibt dir 6 dazu.","Wie viele Stifte hast du jetzt?",18,Stifte,12 + 6
 Schule,🏫,1,"In der Pause isst du 4 von deinen 10 Guetzli auf.","Wie viele Guetzli hast du noch?",6,Guetzli,10 − 4
 Schule,🏫,1,"Du hast 7 rote und 5 blaue Stifte.","Wie viele Stifte hast du insgesamt?",12,Stifte,7 + 5
-Schule,🏫,1,"Im Schulzimmer gibt es 4 Fenstern. Jedes Fenster hat 2 Scheiben.","Wie viele Scheiben gibt es insgesamt?",8,Scheiben,4 × 2
-Schule,🏫,1,"Du hast 15 Aufgaben. Du hast bereits 9 gelöst.","Wie viele Aufgaben fehlen noch?",6,Aufgaben,15 − 9
+Schule,🏫,1,"Im Schulzimmer gibt es 4 Fenster. Jedes Fenster hat 2 Scheiben.","Wie viele Scheiben gibt es insgesamt?",8,Scheiben,4 × 2
+Schule,🏫,1,"Du hast 15 Aufgaben. Du hast bereits 9 gelöst.","Wie viele Aufgaben musst du noch erledigen?",6,Aufgaben,15 − 9
 Schule,🏫,1,"Auf dem Pausenplatz spielen 8 Mädchen und 7 Buben Fangis.","Wie viele Kinder spielen insgesamt?",15,Kinder,8 + 7
 Schule,🏫,1,"Du hast 20 Kleber. Du verschenkst 8 davon.","Wie viele Kleber hast du noch?",12,Kleber,20 − 8
 Schule,🏫,2,"Im Schulzimmer gibt es 5 Tischreihen mit je 4 Stühlen.","Wie viele Stühle gibt es insgesamt?",20,Stühle,5 × 4
@@ -36,10 +36,10 @@ Schule,🏫,2,"Die Klasse bastelt Laternen. Jedes Kind braucht 3 Bögen Papier. 
 Schule,🏫,2,"Du hast 36 Buntstifte und teilst sie gleichmässig auf 4 Gruppen auf.","Wie viele Stifte bekommt jede Gruppe?",9,Stifte,36 ÷ 4
 Schule,🏫,2,"In der Turnstunde machen 3 Gruppen je 15 Liegestützen.","Wie viele Liegestützen sind das zusammen?",45,Liegestützen,3 × 15
 Schule,🏫,2,"Du hast 50 Seiten gelesen. Dein Buch hat 78 Seiten.","Wie viele Seiten fehlen noch?",28,Seiten,78 − 50
-Schule,🏫,3,"Du sammelst Punkte: Mo 12 Pt., Di 15 Pt., Mi 9 Pt., Do 14 Pt. Fr schaffst du gleich viele wie Mo und Di zusammen.","Wie viele Punkte sammelst du am Freitag?",27,Punkte,12 + 15
+Schule,🏫,3,"Du sammelst Punkte: Mo 12 Pt., Di 15 Pt., Mi 9 Pt., Do 14 Pt. Am Fr schaffst du gleich viele wie Mo und Di zusammen.","Wie viele Punkte sammelst du am Freitag?",27,Punkte,12 + 15
 Schule,🏫,3,"Ein Schulheft hat 40 Seiten. Du hast in 3 Wochen je 8 Seiten beschrieben.","Wie viele Seiten sind noch leer?",16,Seiten,40 − (3 × 8)
 Schule,🏫,3,"In der Klasse gibt es 28 Kinder. 3/4 davon machen beim Theaterstück mit.","Wie viele Kinder machen mit?",21,Kinder,28 ÷ 4 × 3
-Schule,🏫,3,"Du sparst jede Woche CHF 2.50 Taschengeld. Nach 6 Wochen kaufst du ein Buch für CHF 12.00.","Wie viel Geld hast du noch?",300,Rp.,(6 × 250) − 1200
+Schule,🏫,3,"Du sparst jede Woche CHF 2.50 Taschengeld. Nach 6 Wochen kaufst du ein Buch für CHF 12.00.","Wie viel Geld hast du noch?",3.00,Fr.,(6 × 250) − 1200
 Schule,🏫,3,"Die Schule hat 12 Klassen mit je 24 Kindern. Heute sind 18 Kinder krank.","Wie viele Kinder sind heute in der Schule?",270,Kinder,(12 × 24) − 18
 Ausflug,🚌,1,"Der Bus fährt um 8:10 Uhr ab. Die Fahrt dauert 20 Minuten.","Um wie viel Minuten nach 8 Uhr kommt ihr an?",30,Min.,10 + 20
 Ausflug,🚌,1,"Auf dem Ausflug lauft ihr 4 km. Dann noch 3 km zurück.","Wie viele km lauft ihr insgesamt?",7,km,4 + 3
@@ -48,14 +48,14 @@ Ausflug,🚌,1,"Ihr habt 30 Minuten Mittagspause. Ihr habt schon 12 Minuten gege
 Ausflug,🚌,1,"Im Zug sitzen 14 Kinder. An der nächsten Station steigen 5 aus.","Wie viele Kinder sind noch im Zug?",9,Kinder,14 − 5
 Ausflug,🚌,1,"Auf dem Wanderweg seht ihr 3 Rehe und 7 Hasen.","Wie viele Tiere seht ihr zusammen?",10,Tiere,3 + 7
 Ausflug,🚌,1,"Ihr wandert 2 km bis zur Hütte. Dann noch 2 km weiter zum See.","Wie viele km seid ihr insgesamt gewandert?",4,km,2 + 2
-Ausflug,🚌,2,"Das Billett kostet CHF 3.80 pro Kind. Es fahren 5 Kinder mit.","Was kosten alle Billette zusammen?",1900,Rp.,5 × 380
+Ausflug,🚌,2,"Das Billett kostet CHF 3.80 pro Kind. Es fahren 5 Kinder mit.","Was kosten alle Billette zusammen?",19,Fr.,5 × 380
 Ausflug,🚌,2,"Bis zum Tierpark sind es 36 km. Ihr habt schon 19 km zurückgelegt.","Wie viele km fehlen noch?",17,km,36 − 19
 Ausflug,🚌,2,"Im Zoo seht ihr 8 Flamingos und doppelt so viele Pinguine.","Wie viele Pinguine gibt es?",16,Pinguine,8 × 2
-Ausflug,🚌,2,"Der Eintritt ins Schwimmbad kostet CHF 4.50 pro Kind. Ihr seid 6 Kinder.","Was kostet der Eintritt insgesamt?",2700,Rp.,6 × 450
+Ausflug,🚌,2,"Der Eintritt ins Schwimmbad kostet CHF 4.50 pro Kind. Ihr seid 6 Kinder.","Was kostet der Eintritt insgesamt?",27.00,Fr.,6 × 450
 Ausflug,🚌,2,"Der Zug fährt um 9:15 Uhr ab und kommt 35 Minuten später an.","Um wie viel Minuten nach 9 Uhr kommt er an?",50,Min.,15 + 35
 Ausflug,🚌,2,"Ihr kauft 4 Glacés à CHF 2.50. Ihr bezahlt mit CHF 10.00.","Wie viel Rückgeld bekommt ihr?",0,Rp.,1000 − (4 × 250)
 Ausflug,🚌,2,"Der Wanderweg ist 12 km lang. Ihr macht nach 7 km Mittagspause.","Wie viele km fehlen noch bis zum Ziel?",5,km,12 − 7
-Ausflug,🚌,3,"3 Klassen fahren in den Ausflug. Jede Klasse hat 22 Kinder. Der Bus fasst 60 Personen.","Wie viele freie Plätze hat der Bus?",6,Plätze,60 − (3 × 22)
+Ausflug,🚌,3,"3 Klassen fahren in den Ausflug. Jede Klasse hat 22 Kinder. Der Bus hat 72 Plätze.","Wie viele freie Plätze hat der Bus?",6,Plätze,72 − (3 × 22)
 Ausflug,🚌,3,"Ihr wandert 3 Etappen: 4 km + 5 km + 6 km. Ihr schafft 3 km pro Stunde.","Wie viele Stunden wandert ihr insgesamt?",5,Stunden,(4 + 5 + 6) ÷ 3
 Ausflug,🚌,3,"Das Tagesprogramm dauert von 8:00 bis 15:30 Uhr. Ihr macht 45 Minuten Mittagspause.","Wie viele Minuten seid ihr aktiv unterwegs?",405,Min.,(7 × 60 + 30) − 45
 Ausflug,🚌,3,"Im Naturmuseum gibt es 4 Stockwerke mit je 6 Ausstellungsräumen. Ihr habt 3 Stockwerke geschafft.","Wie viele Räume habt ihr noch nicht gesehen?",6,Räume,4 × 6 − 3 × 6
@@ -71,13 +71,13 @@ Bauernhof,🐄,2,"Jede Kuh gibt 5 Liter Milch pro Tag. Der Bauer hat 7 Kühe.","
 Bauernhof,🐄,2,"Im Obstgarten stehen 4 Reihen Kirschbäume mit je 6 Bäumen.","Wie viele Kirschbäume gibt es?",24,Bäume,4 × 6
 Bauernhof,🐄,2,"Ein Sack Kartoffeln wiegt 10 kg. Der Bauer füllt 8 Säcke.","Wie viele kg Kartoffeln sind das?",80,kg,8 × 10
 Bauernhof,🐄,2,"Der Bauer melkt 5 Kühe. Jede gibt 8 Liter Milch. Er verkauft 20 Liter.","Wie viele Liter hat er noch?",20,Liter,(5 × 8) − 20
-Bauernhof,🐄,2,"Im Stall fressen 6 Pferde je 4 kg Heu pro Tag.","Wie viele kg Heu braucht der Bauer pro Tag?",24,kg,6 × 4
+Bauernhof,🐄,2,"Im Stall fressen 6 Pferde je 4 kg Heu pro Tag.","Wie viele kg Heu braucht der Bauer in der Woche?",168,kg,7 x 6 × 4
 Bauernhof,🐄,2,"Der Bauer pflanzt 9 Reihen Erdbeeren mit je 8 Pflanzen.","Wie viele Erdbeerpflanzen hat er insgesamt?",72,Pflanzen,9 × 8
-Bauernhof,🐄,2,"Auf dem Markt verkauft der Bauer Eier à 40 Rp. Er verkauft 15 Eier.","Was nimmt er ein?",600,Rp.,15 × 40
+Bauernhof,🐄,2,"Auf dem Markt verkauft der Bauer Eier à 40 Rp. Er verkauft 15 Eier.","Was nimmt er ein?",6.00,Fr.,15 × 40
 Bauernhof,🐄,3,"Der Bauer erntet 96 Äpfel. Er füllt Körbe mit je 8 Äpfeln.","Wie viele Körbe braucht er?",12,Körbe,96 ÷ 8
 Bauernhof,🐄,3,"Montag: 34 Eier, Dienstag: 28 Eier, Mittwoch: 31 Eier.","Wie viele Eier sind das insgesamt?",93,Eier,34 + 28 + 31
 Bauernhof,🐄,3,"Der Bauer hat 3 Felder. Auf jedem Feld wachsen 45 Kürbisse. Er verkauft 38 Kürbisse.","Wie viele Kürbisse hat er noch?",97,Kürbisse,(3 × 45) − 38
-Bauernhof,🐄,3,"Eine Kuh gibt täglich 12 Liter Milch. Der Bauer hat 4 Kühe. Pro Woche braucht er 200 Liter selber.","Wie viele Liter kann er pro Woche verkaufen?",136,Liter,(4 × 12 × 7) − 200
+Bauernhof,🐄,3,"Eine Kuh gibt täglich 12 Liter Milch. Der Bauer hat 4 Kühe. Pro Woche braucht er 20 Liter selber.","Wie viele Liter kann er pro Woche verkaufen?",316,Liter,(4 × 12 × 7) − 20
 Bauernhof,🐄,3,"Der Bauer pflanzt 120 Zwiebeln in 8 gleich grosse Reihen.","Wie viele Zwiebeln sind in jeder Reihe?",15,Zwiebeln,120 ÷ 8
 Sport,⚽,1,"Beim Fussball schiesst dein Team 3 Tore. Das andere Team schiesst 2 Tore.","Wie viele Tore wurden insgesamt geschossen?",5,Tore,3 + 2
 Sport,⚽,1,"Du springst 8 Mal Seil. Deine Freundin springt 5 Mal mehr.","Wie oft springt deine Freundin?",13,Mal,8 + 5
@@ -91,7 +91,7 @@ Sport,⚽,2,"Beim Schwimmen schwimmst du 6 Bahnen à 25 Meter.","Wie viele Meter
 Sport,⚽,2,"Beim Velorennen starten 24 Kinder. 7 müssen aufgeben.","Wie viele Kinder kommen ins Ziel?",17,Kinder,24 − 7
 Sport,⚽,2,"Du trainierst 4 Mal pro Woche je 45 Minuten.","Wie viele Minuten trainierst du pro Woche?",180,Minuten,4 × 45
 Sport,⚽,2,"Im Basketball erzielt dein Team 5 Körbe à 2 Punkte und 3 Freiwürfe à 1 Punkt.","Wie viele Punkte hat dein Team?",13,Punkte,(5 × 2) + (3 × 1)
-Sport,⚽,2,"Beim Langlauf läufst du 3 Runden à 800 Meter.","Wie viele Meter läufst du insgesamt?",2400,Meter,3 × 800
+Sport,⚽,2,"Beim Langlauf läufst du 3 Runden à 800 Meter.","Wie viele Meter läufst du insgesamt?",2.4,Kilometer,3 × 800
 Sport,⚽,2,"Im Turnunterricht macht jedes Kind 8 Liegestützen. Es sind 5 Gruppen à 4 Kinder.","Wie viele Liegestützen werden insgesamt gemacht?",160,Liegestützen,5 × 4 × 8
 Sport,⚽,2,"Du spielst 3 Fussballspiele. In jedem Spiel schiesst du 2 Tore.","Wie viele Tore schiesst du insgesamt?",6,Tore,3 × 2
 Sport,⚽,3,"Im Turnier spielt jede Mannschaft gegen jede andere. Es gibt 4 Mannschaften.","Wie viele Spiele gibt es insgesamt?",6,Spiele,4 × 3 ÷ 2
