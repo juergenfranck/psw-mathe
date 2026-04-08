@@ -94,7 +94,7 @@ Sport,⚽,2,"Im Basketball erzielt dein Team 5 Körbe à 2 Punkte und 3 Freiwür
 Sport,⚽,2,"Beim Langlauf läufst du 3 Runden à 800 Meter.","Wie viele Meter läufst du insgesamt?",2.4,Kilometer,3 × 800
 Sport,⚽,2,"Im Turnunterricht macht jedes Kind 8 Liegestützen. Es sind 5 Gruppen à 4 Kinder.","Wie viele Liegestützen werden insgesamt gemacht?",160,Liegestützen,5 × 4 × 8
 Sport,⚽,2,"Du spielst 3 Fussballspiele. In jedem Spiel schiesst du 2 Tore.","Wie viele Tore schiesst du insgesamt?",6,Tore,3 × 2
-Sport,⚽,3,"Im Turnier spielt jede Mannschaft gegen jede andere. Es gibt 4 Mannschaften.","Wie viele Spiele gibt es insgesamt?",6,Spiele,4 × 3 ÷ 2
+Sport,⚽,3,"Besonders knifflig: Im Turnier spielt jede Mannschaft gegen jede andere. Es gibt 4 Mannschaften.","Wie viele Spiele gibt es insgesamt?",6,Spiele,4 × 3 ÷ 2
 Sport,⚽,3,"Lena läuft jeden Tag 200 Meter mehr als am Vortag. Am Montag läuft sie 400 Meter.","Wie weit läuft sie am Donnerstag?",1000,Meter,400 + (3 × 200)
 Sport,⚽,3,"Ein Fussballspiel dauert 2 × 35 Minuten plus 10 Minuten Pause. Es werden 3 Spiele gespielt.","Wie viele Minuten dauern alle Spiele zusammen?",240,Minuten,3 × (2 × 35 + 10)
 Sport,⚽,3,"Du läufst jeden Tag 500 Meter mehr als am Vortag. Am Montag läufst du 1 km.","Wie viele Meter läufst du von Montag bis Mittwoch insgesamt?",4500,Meter,1000 + 1500 + 2000
