@@ -1,0 +1,1300 @@
+
+<html>
+<head>
+    <title>SIKORE - Sicher Kopfrechnen</title>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <meta name="keywords" content="SIKORE, Kopfrechnen, Kopfrechentrainer, Rechentrainer, Rechnen, Mathematik, Schule">
+    <meta name="description" content="SIKORE - Sicher Kopfrechnen - ein kostenloser Kopfrechentrainer mit Arbeitsblättern zum Ausdrucken oder Online Rechnen.">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="colorbox/colorbox.css"/>
+    <script src="colorbox/jquery-1.7.1.min.js"></script>
+    <script src="colorbox/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="scripting.js"></script>
+</head>
+<body onload="myload()">
+    <div id="pagewrapper">
+        <div id="page">
+            <div id="minimenuwrap">
+                <div id="minimenu" style="display:none;margin-bottom:20px;border-bottom:10px solid #ffdef7;text-align:center">
+                    <table>
+                        <tr>
+                            <td rowspan=2>
+                                <img alt="" height="100" src="fig/fig3_150.png" style="vertical-align:middle">
+                            </td>
+                            <td>
+                                <a title="Zur Startseite mit allen Optionen wechseln" class="buttonlink" href="javascript:show_menu();">Startseite</a>
+                                <a title="Ein neues Blatt mit neuen Aufgaben erzeugen" class="buttonlink" href="javascript:erzeuge_blatt(0);">Neues Blatt</a>
+                                <a title="Das angezeigte Blatt drucken" class="buttonlink" href="javascript:window.print();">Drucken</a>
+                                <a title="Aufgabenblatt anzeigen" id="buttonaufgaben" class="buttonlink" href="javascript:show_aufgaben();">Aufgabenblatt</a>
+                                <a title="Lösungsblatt anzeigen" id="buttonloesungen" class="buttonlink" href="javascript:show_loesungen();">L&ouml;sungsblatt</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+
+                                Drucken (oder der Druckbefehl des Browsers) druckt das unten angezeigte Blatt.
+                                <br>
+                                Weitere M&ouml;glichkeiten: Zwischen Aufgabenblatt und Lösungsblatt umschalten,
+                                ein neues Blatt erzeugen oder zur Startseite mit allen Optionen zurückkehren.
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="menu" style="display:block">
+                <div id="langsel">
+                    <a href="index_en.html">view in English</a>
+                </div>
+                <div id="head">
+                    <img alt="SIKORE" src="sikorep.png">
+                    <img alt="" src="fig/fig3_150.png">
+                    <img alt="SICHER KOPFRECHNEN" src="sicherkopfrechnen.png">
+                </div>
+                <div>
+                SIKORE hilft Lernwilligen, ihre Kopfrechenfertigkeiten zu verbessern. Mit nur wenigen Klicks werden kostenlose Aufgabenbl&auml;tter zum Ausdrucken erstellt. Die Aufgaben k&ouml;nnen aber auch direkt im Browser gelöst werden. Die Schwierigkeitsstufe ist frei wählbar.
+                </div>
+                <noscript>
+                    <div id="nono">
+                        <b>Achtung:</b>
+                         SIKORE verwendet JavaScript zur Erzeugung der Rechenaufgabe. Deshalb müssen Sie JavaScript in Ihrem Browser aktivieren, wenn Sie SIKORE verwenden wollen.
+                    </div>
+                </noscript>
+                <form name="optionform">
+                    <table class="sikore">
+                        <tr>
+                            <td>
+                                <b>Schwierigkeit:</b>
+                            </td>
+                            <td colspan="2">
+                                <select id="level" onchange="levelchanged()">
+                                    <option value="10">		Level 1: Bis 10, nur Plus/Minus
+                                    <option value="19">		Level 2: Bis 19, nur Plus/Minus, ohne &Uuml;bertrag
+                                    <option value="20">		Level 3: Bis 20, nur Plus/Minus
+                                    <option value="99">		Level 4: Bis 99, nur Plus/Minus, ohne &Uuml;bertrag
+                                    <option value="100">		Level 5: Bis 100, nur Plus/Minus
+                                    <option value="100M10">		Level 6: Bis 100, Mal 10
+                                    <option value="200">		Level 7: Bis 200, nur Plus/Minus
+                                    <option value="200M10">		Level 8: Bis 200, Mal 10
+                                    <option value="250">		Level 9: Bis 250, nur Plus/Minus
+                                    <option value="250M15">		Level 10: Bis 250, Mal 15
+                                    <option value="500">		Level 11: Bis 500, nur Plus/Minus
+                                    <option value="500M10" selected>Level 12: Bis 500, Mal 10
+                                    <option value="500M20">		Level 13: Bis 500, Mal 20
+                                    <option value="1000">		Level 14: Bis 1000, nur Plus/Minus
+                                    <option value="1000M10">	Level 15: Bis 1000, Mal 10
+                                    <option value="1000M20">	Level 16: Bis 1000, Mal 20
+                                    <option value="1000M30">	Level 17: Bis 1000, Mal 30
+                                    <option value="2000">		Level 18: Bis 2000, nur Plus/Minus
+                                    <option value="2000M20">	Level 19: Bis 2000, Mal 20
+                                    <option value="2000M30">	Level 20: Bis 2000, Mal 30
+                                    <option value="2000M40">	Level 21: Bis 2000, Mal 40
+                                    <option value="5000">		Level 22: Bis 5000, nur Plus/Minus
+                                    <option value="5000M30">	Level 23: Bis 5000, Mal 30
+                                    <option value="5000M50">	Level 24: Bis 5000, Mal 50
+                                    <option value="5000M70">	Level 25: Bis 5000, Mal 70
+                                    <option value="10000">		Level 26: Bis 10000 nur Plus/Minus
+                                    <option value="10000M30">	Level 27: Bis 10000 Mal 30
+                                    <option value="10000M50">	Level 28: Bis 10000 Mal 50
+                                    <option value="10000M100">	Level 29: Bis 10000 Mal 100
+                                    <option value="100000">		Level 30: Bis 100000, nur Plus/Minus
+                                    <option value="100000M50">	Level 31: Bis 100000, Mal 50
+                                    <option value="100000M100">	Level 32: Bis 100000, Mal 100
+                                    <option value="100000M300">	Level 33: Bis 100000, Mal 300
+                                    <option value="500000">		Level 34: Bis 500000, nur Plus/Minus
+                                    <option value="500000M100">	Level 35: Bis 500000, Mal 100
+                                    <option value="500000M300">	Level 36: Bis 500000, Mal 300
+                                    <option value="500000M500">	Level 37: Bis 500000, Mal 500
+                                    <option value="999999">		Level 38: Bis 999999, nur Plus/Minus
+                                    <option value="999999M999">	Level 39: Bis 999999, Mal 999
+                                    <option value="selbst">		benutzerdefiniert
+                                </select>
+                            </td>
+                            <td rowspan="4">
+                                <a href="gallery.html" target="gallery">
+                                    <img style="border:none" alt="" src="fig/fig2_klick_w_120.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Erweitert:</b>
+                            </td>
+                            <td colspan="2">
+                                <span id="optionen" style="display:none">
+
+                                    Detaillierte Hilfe zu jeder Einstellung ist hinter den Fragezeichen 
+                                    <img alt="?" style="vertical-align:bottom" src="help.png">
+                                     versteckt. Einfach mit dem Mauszeiger darüber verweilen.
+                                    <br>
+
+                                    Zu viel verstellt? 
+                                    <a href="javascript:resetall();">Hier klicken,</a>
+                                     um alles wieder auf Standard zu setzen.
+                                    <br>
+
+                                    Die idealen Einstellungen gefunden? Einfach 
+                                    <a id="favlink" href="?">diesen Link</a>
+                                     als Favoriten speichern, um sp&auml;ter die Seite mit genau diesen Einstellungen wieder aufzurufen.
+                                    <br>
+                                    <br>
+                                </span>
+                                <table id="optionen2" class="opttab" style="display:none;">
+                                    <tr>
+                                        <td class="opttabtd1" rowspan="2">
+                                            <b>Zahlenbereich</b>
+                                        </td>
+                                        <td class="opttabtd2">
+
+                                            Ergebnis höchstens
+                                            <br>
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Kein Zwischenergebnis wird diesen Wert &uuml;bersteigen.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="fmaxresult" onchange="optchanged()">
+                                                <option value="10">10
+                                                <option value="15">15
+                                                <option value="19">19
+                                                <option value="20">20
+                                                <option value="25">25
+                                                <option value="30">30
+                                                <option value="35">35
+                                                <option value="40">40
+                                                <option value="45">45
+                                                <option value="50">50
+                                                <option value="55">55
+                                                <option value="60">60
+                                                <option value="65">65
+                                                <option value="70">70
+                                                <option value="75">75
+                                                <option value="80">80
+                                                <option value="85">85
+                                                <option value="90">90
+                                                <option value="95">95
+                                                <option value="99">99
+                                                <option value="100">100
+                                                <option value="150">150
+                                                <option value="200">200
+                                                <option value="250">250
+                                                <option value="300">300
+                                                <option value="350">350
+                                                <option value="400">400
+                                                <option value="450">450
+                                                <option value="500">500
+                                                <option value="550">550
+                                                <option value="600">600
+                                                <option value="650">650
+                                                <option value="700">700
+                                                <option value="750">750
+                                                <option value="800">800
+                                                <option value="850">850
+                                                <option value="900">900
+                                                <option value="950">950
+                                                <option value="1000">1.000
+                                                <option value="2000">2.000
+                                                <option value="3000">3.000
+                                                <option value="4000">4.000
+                                                <option value="5000">5.000
+                                                <option value="6000">6.000
+                                                <option value="7000">7.000
+                                                <option value="8000">8.000
+                                                <option value="9000">9.000
+                                                <option value="10000">10.000
+                                                <option value="20000">20.000
+                                                <option value="30000">30.000
+                                                <option value="40000">40.000
+                                                <option value="50000">50.000
+                                                <option value="60000">60.000
+                                                <option value="70000">70.000
+                                                <option value="80000">80.000
+                                                <option value="90000">90.000
+                                                <option value="100000">100.000
+                                                <option value="200000">200.000
+                                                <option value="300000">300.000
+                                                <option value="400000">400.000
+                                                <option value="500000">500.000
+                                                <option value="600000">600.000
+                                                <option value="700000">700.000
+                                                <option value="800000">800.000
+                                                <option value="900000">900.000
+                                                <option value="999999">999.999
+                                            </select>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd2">
+                                        Negative Zahlen zulassen
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Negative Zahlen sind sowohl als Zwischenergebnisse als auch als Operanden zugelassen.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="fnegativ" onchange="optchanged()">
+                                                <option value="nein">nein
+                                                <option value="ja">ja
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd1">
+                                            <b>Plus / Minus</b>
+                                        </td>
+                                        <td class="opttabtd2">
+                                        Summand / Subtrahend zwischen
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Um geeignete Mal-/Geteiltaufgaben zu konstruieren, wird diese Grenze bei Bedarf ignoriert. Bei reinen Plus-/Minusaufgaben wird sie jedoch strikt eingehalten.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="fminplusminus" onchange="optchanged()">
+                                                <option value="1">1
+                                                <option value="2">2
+                                                <option value="3">3
+                                                <option value="4">4
+                                                <option value="5">5
+                                                <option value="6">6
+                                                <option value="7">7
+                                                <option value="8">8
+                                                <option value="9">9
+                                                <option value="10">10
+                                                <option value="15">15
+                                                <option value="20">20
+                                                <option value="25">25
+                                                <option value="30">30
+                                                <option value="35">35
+                                                <option value="40">40
+                                                <option value="45">45
+                                                <option value="50">50
+                                                <option value="55">55
+                                                <option value="60">60
+                                                <option value="65">65
+                                                <option value="70">70
+                                                <option value="75">75
+                                                <option value="80">80
+                                                <option value="85">85
+                                                <option value="90">90
+                                                <option value="95">95
+                                                <option value="100">100
+                                                <option value="150">150
+                                                <option value="200">200
+                                                <option value="250">250
+                                                <option value="300">300
+                                                <option value="350">350
+                                                <option value="400">400
+                                                <option value="450">450
+                                                <option value="500">500
+                                                <option value="550">550
+                                                <option value="600">600
+                                                <option value="650">650
+                                                <option value="700">700
+                                                <option value="750">750
+                                                <option value="800">800
+                                                <option value="850">850
+                                                <option value="900">900
+                                                <option value="950">950
+                                                <option value="1000">1.000
+                                                <option value="2000">2.000
+                                                <option value="3000">3.000
+                                                <option value="4000">4.000
+                                                <option value="5000">5.000
+                                                <option value="6000">6.000
+                                                <option value="7000">7.000
+                                                <option value="8000">8.000
+                                                <option value="9000">9.000
+                                                <option value="9999">9.999
+                                                <option value="10000">10.000
+                                                <option value="20000">20.000
+                                                <option value="30000">30.000
+                                                <option value="40000">40.000
+                                                <option value="50000">50.000
+                                                <option value="60000">60.000
+                                                <option value="70000">70.000
+                                                <option value="80000">80.000
+                                                <option value="90000">90.000
+                                                <option value="100000">100.000
+                                                <option value="200000">200.000
+                                                <option value="300000">300.000
+                                                <option value="400000">400.000
+                                                <option value="499999">499.999
+                                            </select>
+
+                                            und
+                                            <select id="fmaxplusminus" onchange="optchanged()">
+                                                <option value="1">1
+                                                <option value="2">2
+                                                <option value="3">3
+                                                <option value="4">4
+                                                <option value="5">5
+                                                <option value="6">6
+                                                <option value="7">7
+                                                <option value="8">8
+                                                <option value="9">9
+                                                <option value="10">10
+                                                <option value="15">15
+                                                <option value="20">20
+                                                <option value="25">25
+                                                <option value="30">30
+                                                <option value="35">35
+                                                <option value="40">40
+                                                <option value="45">45
+                                                <option value="50">50
+                                                <option value="55">55
+                                                <option value="60">60
+                                                <option value="65">65
+                                                <option value="70">70
+                                                <option value="75">75
+                                                <option value="80">80
+                                                <option value="85">85
+                                                <option value="90">90
+                                                <option value="95">95
+                                                <option value="100">100
+                                                <option value="125">125
+                                                <option value="150">150
+                                                <option value="200">200
+                                                <option value="250">250
+                                                <option value="300">300
+                                                <option value="350">350
+                                                <option value="400">400
+                                                <option value="450">450
+                                                <option value="500">500
+                                                <option value="550">550
+                                                <option value="600">600
+                                                <option value="650">650
+                                                <option value="700">700
+                                                <option value="750">750
+                                                <option value="800">800
+                                                <option value="850">850
+                                                <option value="900">900
+                                                <option value="950">950
+                                                <option value="1000">1.000
+                                                <option value="2000">2.000
+                                                <option value="2500">2.500
+                                                <option value="3000">3.000
+                                                <option value="4000">4.000
+                                                <option value="5000">5.000
+                                                <option value="6000">6.000
+                                                <option value="7000">7.000
+                                                <option value="8000">8.000
+                                                <option value="9000">9.000
+                                                <option value="10000">10.000
+                                                <option value="20000">20.000
+                                                <option value="25000">25.000
+                                                <option value="30000">30.000
+                                                <option value="40000">40.000
+                                                <option value="50000">50.000
+                                                <option value="60000">60.000
+                                                <option value="70000">70.000
+                                                <option value="80000">80.000
+                                                <option value="90000">90.000
+                                                <option value="100000">100.000
+                                                <option value="200000">200.000
+                                                <option value="250000">250.000
+                                                <option value="300000">300.000
+                                                <option value="400000">400.000
+                                                <option value="499999">499.999
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd1" rowspan="3">
+                                            <b>Mal</b>
+                                        </td>
+                                        <td class="opttabtd2">
+                                        H&auml;ufigkeit
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Mit dieser H&auml;ufigkeit sind Malaufgaben vertreten. Sind keine Malaufgaben gew&uuml;nscht, ist hier 'nie' einzustellen.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="fchancemal" onchange="optchanged()">
+                                                <option value="0">nie
+                                                <option value="1">selten
+                                                <option value="2" selected>normal
+                                                <option value="3">oft
+                                                <option value="4">sehr oft
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd2">
+                                        Zweiter Faktor zwischen
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Mit diesen Zahlen darf multipliziert werden. Im Extremfall kann hier nur ein einzelnes Einmaleins trainiert werden.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="fminmal" onchange="optchanged()">
+                                                <option value="2">2
+                                                <option value="3">3
+                                                <option value="4">4
+                                                <option value="5">5
+                                                <option value="6">6
+                                                <option value="7">7
+                                                <option value="8">8
+                                                <option value="9">9
+                                                <option value="10">10
+                                                <option value="11">11
+                                                <option value="12">12
+                                                <option value="13">13
+                                                <option value="14">14
+                                                <option value="15">15
+                                                <option value="16">16
+                                                <option value="17">17
+                                                <option value="18">18
+                                                <option value="19">19
+                                                <option value="20">20
+                                                <option value="25">25
+                                                <option value="30">30
+                                                <option value="35">35
+                                                <option value="40">40
+                                                <option value="45">45
+                                                <option value="50">50
+                                                <option value="55">55
+                                                <option value="60">60
+                                                <option value="65">65
+                                                <option value="70">70
+                                                <option value="75">75
+                                                <option value="80">80
+                                                <option value="85">85
+                                                <option value="90">90
+                                                <option value="95">95
+                                                <option value="100">100
+                                                <option value="150">150
+                                                <option value="200">200
+                                                <option value="250">250
+                                                <option value="300">300
+                                                <option value="350">350
+                                                <option value="400">400
+                                                <option value="450">450
+                                                <option value="500">500
+                                                <option value="600">600
+                                                <option value="700">700
+                                                <option value="800">800
+                                                <option value="900">900
+                                                <option value="999">999
+                                            </select>
+
+                                            und
+                                            <select id="fmaxmal" onchange="optchanged()">
+                                                <option value="2">2
+                                                <option value="3">3
+                                                <option value="4">4
+                                                <option value="5">5
+                                                <option value="6">6
+                                                <option value="7">7
+                                                <option value="8">8
+                                                <option value="9">9
+                                                <option value="10">10
+                                                <option value="11">11
+                                                <option value="12">12
+                                                <option value="13">13
+                                                <option value="14">14
+                                                <option value="15">15
+                                                <option value="16">16
+                                                <option value="17">17
+                                                <option value="18">18
+                                                <option value="19">19
+                                                <option value="20">20
+                                                <option value="25">25
+                                                <option value="30">30
+                                                <option value="35">35
+                                                <option value="40">40
+                                                <option value="45">45
+                                                <option value="50">50
+                                                <option value="55">55
+                                                <option value="60">60
+                                                <option value="65">65
+                                                <option value="70">70
+                                                <option value="75">75
+                                                <option value="80">80
+                                                <option value="85">85
+                                                <option value="90">90
+                                                <option value="95">95
+                                                <option value="100">100
+                                                <option value="150">150
+                                                <option value="200">200
+                                                <option value="250">250
+                                                <option value="300">300
+                                                <option value="350">350
+                                                <option value="400">400
+                                                <option value="450">450
+                                                <option value="500">500
+                                                <option value="600">600
+                                                <option value="700">700
+                                                <option value="800">800
+                                                <option value="900">900
+                                                <option value="999">999
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd2">
+                                        Erster Faktor höchstens
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Auch der erste Faktor kann begrenzt werden, wenn z.B. Aufgaben wie 96&bull;7 vermieden werden sollen. Mit dieser und obiger Option kann man den Bereich 10&bull;10 langsam erweitern und z.B. nur einstellige mal zweistellige Aufgaben zulassen.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="flimitfakt" onchange="optchanged()">
+                                                <option value="ja" selected>wie zweiter Faktor
+                                                <option value="nein">beliebig
+                                                <option value="2">2
+                                                <option value="3">3
+                                                <option value="4">4
+                                                <option value="5">5
+                                                <option value="6">6
+                                                <option value="7">7
+                                                <option value="8">8
+                                                <option value="9">9
+                                                <option value="10">10
+                                                <option value="11">11
+                                                <option value="12">12
+                                                <option value="13">13
+                                                <option value="14">14
+                                                <option value="15">15
+                                                <option value="16">16
+                                                <option value="17">17
+                                                <option value="18">18
+                                                <option value="19">19
+                                                <option value="20">20
+                                                <option value="25">25
+                                                <option value="30">30
+                                                <option value="35">35
+                                                <option value="40">40
+                                                <option value="45">45
+                                                <option value="50">50
+                                                <option value="55">55
+                                                <option value="60">60
+                                                <option value="65">65
+                                                <option value="70">70
+                                                <option value="75">75
+                                                <option value="80">80
+                                                <option value="85">85
+                                                <option value="90">90
+                                                <option value="95">95
+                                                <option value="100">100
+                                                <option value="150">150
+                                                <option value="200">200
+                                                <option value="250">250
+                                                <option value="300">300
+                                                <option value="350">350
+                                                <option value="400">400
+                                                <option value="450">450
+                                                <option value="500">500
+                                                <option value="600">600
+                                                <option value="700">700
+                                                <option value="800">800
+                                                <option value="900">900
+                                                <option value="999">999
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd1" rowspan="3">
+                                            <b>Geteilt</b>
+                                        </td>
+                                        <td class="opttabtd2">
+                                        H&auml;ufigkeit
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Mit dieser H&auml;ufigkeit sind Geteiltaufgaben vertreten. Sind keine Geteiltaufgaben gew&uuml;nscht, ist hier 'nie' einzustellen.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="fchancegeteilt" onchange="optchanged()">
+                                                <option value="0">nie
+                                                <option value="1">selten
+                                                <option value="2" selected>normal
+                                                <option value="3">oft
+                                                <option value="4">sehr oft
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd2">
+                                        Divisor
+                                        zwischen
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Hierdurch wird geteilt. Es l&auml;sst sich so weit eingrenzen, dass nur Teilaufgaben eines bestimmten Einmaleins ge&uuml;bt werden k&ouml;nnen.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="fmingeteilt" onchange="optchanged()">
+                                                <option value="2">2
+                                                <option value="3">3
+                                                <option value="4">4
+                                                <option value="5">5
+                                                <option value="6">6
+                                                <option value="7">7
+                                                <option value="8">8
+                                                <option value="9">9
+                                                <option value="10">10
+                                                <option value="11">11
+                                                <option value="12">12
+                                                <option value="13">13
+                                                <option value="14">14
+                                                <option value="15">15
+                                                <option value="16">16
+                                                <option value="17">17
+                                                <option value="18">18
+                                                <option value="19">19
+                                                <option value="20">20
+                                                <option value="25">25
+                                                <option value="30">30
+                                                <option value="35">35
+                                                <option value="40">40
+                                                <option value="45">45
+                                                <option value="50">50
+                                                <option value="55">55
+                                                <option value="60">60
+                                                <option value="65">65
+                                                <option value="70">70
+                                                <option value="75">75
+                                                <option value="80">80
+                                                <option value="85">85
+                                                <option value="90">90
+                                                <option value="95">95
+                                                <option value="100">100
+                                                <option value="150">150
+                                                <option value="200">200
+                                                <option value="250">250
+                                                <option value="300">300
+                                                <option value="350">350
+                                                <option value="400">400
+                                                <option value="450">450
+                                                <option value="500">500
+                                                <option value="600">600
+                                                <option value="700">700
+                                                <option value="800">800
+                                                <option value="900">900
+                                                <option value="999">999
+                                            </select>
+
+                                            und
+                                            <select id="fmaxgeteilt" onchange="optchanged()">
+                                                <option value="2">2
+                                                <option value="3">3
+                                                <option value="4">4
+                                                <option value="5">5
+                                                <option value="6">6
+                                                <option value="7">7
+                                                <option value="8">8
+                                                <option value="9">9
+                                                <option value="10">10
+                                                <option value="11">11
+                                                <option value="12">12
+                                                <option value="13">13
+                                                <option value="14">14
+                                                <option value="15">15
+                                                <option value="16">16
+                                                <option value="17">17
+                                                <option value="18">18
+                                                <option value="19">19
+                                                <option value="20">20
+                                                <option value="25">25
+                                                <option value="30">30
+                                                <option value="35">35
+                                                <option value="40">40
+                                                <option value="45">45
+                                                <option value="50">50
+                                                <option value="55">55
+                                                <option value="60">60
+                                                <option value="65">65
+                                                <option value="70">70
+                                                <option value="75">75
+                                                <option value="80">80
+                                                <option value="85">85
+                                                <option value="90">90
+                                                <option value="95">95
+                                                <option value="100">100
+                                                <option value="150">150
+                                                <option value="200">200
+                                                <option value="250">250
+                                                <option value="300">300
+                                                <option value="350">350
+                                                <option value="400">400
+                                                <option value="450">450
+                                                <option value="500">500
+                                                <option value="600">600
+                                                <option value="700">700
+                                                <option value="800">800
+                                                <option value="900">900
+                                                <option value="999">999
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd2">
+                                        Wert des Quotienten höchstens
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Analog zu den Malaufgaben kann hier auch der Wert des Quotienten begrenzt werden, um Geteiltaufgaben wie 238:7 zu vermeiden. Auch hier empfiehlt sich eine schrittweise Erweiterung &uuml;ber den Bereich des kleinen Einmaleins hinaus.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="flimitquot" onchange="optchanged()">
+                                                <option value="ja">wie Divisor
+                                                <option value="nein">beliebig
+                                                <option value="2">2
+                                                <option value="3">3
+                                                <option value="4">4
+                                                <option value="5">5
+                                                <option value="6">6
+                                                <option value="7">7
+                                                <option value="8">8
+                                                <option value="9">9
+                                                <option value="10">10
+                                                <option value="11">11
+                                                <option value="12">12
+                                                <option value="13">13
+                                                <option value="14">14
+                                                <option value="15">15
+                                                <option value="16">16
+                                                <option value="17">17
+                                                <option value="18">18
+                                                <option value="19">19
+                                                <option value="20">20
+                                                <option value="25">25
+                                                <option value="30">30
+                                                <option value="35">35
+                                                <option value="40">40
+                                                <option value="45">45
+                                                <option value="50">50
+                                                <option value="55">55
+                                                <option value="60">60
+                                                <option value="65">65
+                                                <option value="70">70
+                                                <option value="75">75
+                                                <option value="80">80
+                                                <option value="85">85
+                                                <option value="90">90
+                                                <option value="95">95
+                                                <option value="100">100
+                                                <option value="150">150
+                                                <option value="200">200
+                                                <option value="250">250
+                                                <option value="300">300
+                                                <option value="350">350
+                                                <option value="400">400
+                                                <option value="450">450
+                                                <option value="500">500
+                                                <option value="600">600
+                                                <option value="700">700
+                                                <option value="800">800
+                                                <option value="900">900
+                                                <option value="999">999
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center; padding-top:15px" colspan="4">
+                                        Optionen f&uuml;r die Optik des Aufgabenblatts:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd1">
+                                            <b>Kettenl&auml;nge</b>
+                                        </td>
+                                        <td class="opttabtd2">
+                                        Anzahl Aufgaben je Kette
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="So viele Rechenoperationen hat jede Kette. Achtung: Zu lange oder zu viele Ketten passen beim Drucken nicht auf eine Seite. Tipp: 16x5 Aufgaben passen auf ein Blatt, wenn Sie unten die 'Dekoration' auf 'keine' stellen.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="fkettenlaenge" onchange="otheroptchanged()">
+                                                <option value="4">4
+                                                <option value="8">8
+                                                <option value="12" selected>12
+                                                <option value="16">16
+                                                <option value="20">20
+                                                <option value="24">24
+                                                <option value="28">28
+                                                <option value="32">32
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd1">
+                                            <b>Kettenanzahl</b>
+                                        </td>
+                                        <td class="opttabtd2">
+                                        Anzahl Ketten pro Blatt
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="So viele Ketten sind auf einem Blatt. Achtung: Zu lange oder zu viele Ketten passen beim Drucken nicht auf eine Seite. Tipp: Bei den meisten Browsern kann man in der Druckvorschau den Ausdruck skalieren.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="fkettenanzahl" onchange="otheroptchanged()">
+                                                <option value="1">1
+                                                <option value="2">2
+                                                <option value="3">3
+                                                <option value="4">4
+                                                <option value="5" selected>5
+                                                <option value="6">6
+                                                <option value="7">7
+                                                <option value="8">8
+                                                <option value="9">9
+                                                <option value="10">10
+                                                <option value="11">11
+                                                <option value="12">12
+                                                <option value="13">13
+                                                <option value="14">14
+                                                <option value="15">15
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd1">
+                                            <b>Schreibweise</b>
+                                        </td>
+                                        <td class="opttabtd2">
+                                        Verbinde die Aufgaben mit
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Legt fest, ob die Aufgaben mathematisch korrekt mit Operatorpfeilen oder schlampig mit Gleichheitszeichen gedruckt werden. Empfohlen sind Operatorpfeile. Das Istgleich gibt es nur noch aus historischen Gründen.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="fschreibweise" onchange="otheroptchanged()">
+                                                <option value="operatoren">Operatoren
+                                                <option value="gleichheitszeichen">Gleichheitszeichen
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd1">
+                                            <b>Lösungshilfe</b>
+                                        </td>
+                                        <td class="opttabtd2">
+                                        Füge als Hilfe hinzu
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Zur Kontrolle, ob man noch richtig liegt, k&ouml;nnen dem Aufgabenblatt verschiedene Hilfen hinzugef&uuml;gt werden. Standard ist eine Quersumme am Zeilenende. Es k&ouml;nnen aber auch Quersummen nach jedem Ergebnis gedruckt werden. Auch ist es m&ouml;glich, alle L&ouml;sungen als L&ouml;sungszeile sortiert nach Gr&ouml;&szlig;e zum Abstreichen anzugeben.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="floesungshilfe" onchange="otheroptchanged()">
+                                                <option value="nie">nichts
+                                                <option value="default" selected>Quersumme am Zeilenende
+                                                <option value="immer">Immer Quersumme
+                                                <option value="loesungen">Lösungszeile
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd1">
+                                            <b>Dekoration</b>
+                                        </td>
+                                        <td class="opttabtd2">
+                                        Figuren zwischen den Aufgaben
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="So viele von den lustigen, kleinen Figuren werden zwischen den einzelnen Kettenaufgaben gedruckt.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="ffigs" onchange="otheroptchanged()">
+                                                <option value="0">keine
+                                                <option value="1">1
+                                                <option value="3">3
+                                                <option value="5" selected>5
+                                                <option value="7">7
+                                                <option value="9">9
+                                                <option value="11">11
+                                                <option value="13">13
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd1">
+                                            <b>Levelanzeige</b>
+                                        </td>
+                                        <td class="opttabtd2">
+                                        Text unter der &Uuml;berschrift
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Das steht auf den Aufgabenblättern direkt unter der Überschrift. Automatisch bedeutet, dass links der Level und rechts die wichtigsten Einstellungen der gewählten Schwierigkeitsstufe gedruckt werden. Eigener bedeutet, dass der Text selbst eingegeben werden muss.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="fleveltext" onchange="toggle_leveltext()">
+                                                <option value="auto" selected>automatisch
+                                                <option value="keiner">keiner
+                                                <option value="eigener">eigener
+                                            </select>
+                                            <table id="leveltexts2" style="display:none">
+                                                <tr>
+                                                    <td class="leveltexttd">Links:</td>
+                                                    <td class="leveltexttd">
+                                                        <input type="text" id="fleveltext1" size="18" maxlength="25">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="leveltexttd">
+                                                    Rechts:</td>
+                                                    <td class="leveltexttd">
+                                                        <input type="text" id="fleveltext2" size="18" maxlength="25">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center; padding-top:15px" colspan="4">
+                                        Optionen f&uuml;r SIKORE Live:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd1">
+                                            <b>Lösungshilfe</b>
+                                        </td>
+                                        <td class="opttabtd2">Anklickbare Ergebnisse</td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Manchmal kann es interessant sein, anklickbare L&ouml;sungen zu haben. Ideal f&uuml;r iPads.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="flivehelp" onchange="otheroptchanged()">
+                                                <option value="ja">ja
+                                                <option value="nein" selected>nein
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="opttabtd1">
+                                            <b>Zeitlimit</b>
+                                        </td>
+                                        <td class="opttabtd2">Zeitlimit zum L&ouml;sen der Aufgaben</td>
+                                        <td class="opttabtd3">
+                                            <img alt="?" src="help.png" title="Nach Ablauf dieser Zeit kann nicht mehr weitergerechnet werden.">
+                                        </td>
+                                        <td class="opttabtd3">
+                                            <select id="flivezeit" onchange="otheroptchanged()">
+                                                <option value="0" selected>nein
+                                                <option value="1">1 Minute
+                                                <option value="2">2 Minuten
+                                                <option value="3">3 Minuten
+                                                <option value="4">4 Minuten
+                                                <option value="5">5 Minuten
+                                                <option value="6">6 Minuten
+                                                <option value="9">9 Minuten
+                                                <option value="12">12 Minuten
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a id="toggleoptionen" href="javascript:toggleoptionenchanged()">
+
+                                    Eine der obigen Schwierigkeitsstufen auswählen oder 
+                                    <b>hier klicken</b>
+                                    , um weitere Einstellmöglichkeiten anzuzeigen.
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Aufgabenblatt:</b>
+                            </td>
+                            <td style="white-space:nowrap">
+                                <a class="buttonlink" href="javascript:erzeuge_blatt(0);">Blatt erzeugen</a>
+                            </td>
+                            <td>
+                            Ein zufälliges Aufgabenblatt erzeugen, welches sofort ausgedruckt werden kann.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>SIKORE Live:</b>
+                            </td>
+                            <td style="white-space:nowrap">
+                                <a class="buttonlink" href="javascript:erzeuge_blatt(1);">Jetzt rechnen</a>
+                            </td>
+                            <td>
+                            Eine Kettenaufgabe erzeugen und sofort online lösen.
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+
+                <div id="rechts" style="display:none"></div>
+                <div id="mitte">
+                    <br>
+                    <h2>Wissenswertes &uuml;ber SIKORE</h2>
+                    <ul>
+                        <li>Eine Kettenaufgabe erstreckt sich über mehrere Zeilen. Am Zeilenende wird das Zwischenergebnis in die n&auml;chste Zeile übertragen. Damit wird weitergerechnet.</li>
+                        <li>Auf einem Aufgabenblatt stehen fünf Kettenaufgaben, z.B. eine für jeden Schultag der Woche.</li>
+                        <li>Die Einsatzmöglichkeiten sind vielf&auml;ltig: Hausaufgabe, Schulübung, mit Zeitlimit, Highscore-Liste, Rechenkönig,...</li>
+                        <li>SIKORE ist ein Freizeitprojekt. Die Nutzung ist kostenlos. 
+                        <li>
+                            Unterst&uuml;tzen per PayPal: 
+                            <em>Geld senden</em>
+                             an 
+                            <span id="mm1">mich</span>
+                             oder auch direkt hier:
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="display:inline">
+                                <input type="hidden" name="cmd" value="_s-xclick">
+                                <input type="hidden" name="hosted_button_id" value="XUW7YQ9REH7XE">
+                                <input type="submit" value="Spenden" style="font-size:0.7em">
+                            </form>
+                    </ul>
+                </div>
+
+                <div id="footer">
+                    <a href="http://www.sikore.org">www.sikore.org</a>
+                    &nbsp;&nbsp;
+                    &copy; 2000-2024 Christian Schiffner
+                    <img height="20" src="fig/fig1_bw_70.png" alt="">
+
+                    Illustrationen Hannah Tischer
+                    <img height="20" src="fig/fig7_bw_70.png" alt="">
+                </div>
+                <span id="debugid" style="text-align:left"></span>
+
+            </div>
+
+            <div id="aprint" style="display:none">
+                <table class="blatt" style="margin-bottom:10px">
+                    <tr style="vertical-align:middle">
+                        <td style="white-space:nowrap;text-align:right;padding-left:0px">
+                            <img src="sikore_bw.png">
+                            <br>
+
+                            &nbsp;
+                            <span id="aprintleveltext1">APRINTLEVELTEXT1</span>
+                        </td>
+                        <td>
+                            <img height="80" src="fig/fig3_bw_120.png" style="margin-left:15px;margin-right:10px">
+                        </td>
+                        <td style="white-space:nowrap;text-align:left">
+                            <img src="sicherkopfrechnen_bw.png">
+                            <br>
+                            <span id="aprintleveltext2">APRINTLEVELTEXT2</span>
+                        </td>
+                    </tr>
+                </table>
+                <span id="aprintaufgaben">APRINTAUFGABEN</span>
+                <div class="printfooter">
+
+                    Drucke Dir eigene Bl&auml;tter aus oder rechne online auf 
+                    <a href="https://www.sikore.org">www.sikore.org</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&copy; 2000-2023
+                </div>
+            </div>
+            <!-- PRINT -->
+
+            <div id="lprint" style="display:none;text-align:center">
+                <table class="blatt" style="margin-bottom:10px">
+                    <tr style="vertical-align:middle">
+                        <td style="white-space:nowrap;text-align:right;padding-left:0px">
+                            <img src="sikore_bw.png">
+                            <br>
+
+                            &nbsp;
+                            <span id="lprintleveltext1">LPRINTLEVELTEXT1</span>
+                        </td>
+                        <td>
+                            <img height="80" src="fig/fig3_bw_120.png" style="margin-left:15px;margin-right:10px">
+                        </td>
+                        <td style="white-space:nowrap;text-align:left">
+                            <img src="sicherkopfrechnen_bw.png">
+                            <br>
+                            <span id="lprintleveltext2">LPRINTLEVELTEXT2</span>
+                        </td>
+                    </tr>
+                </table>
+                <span id="lprintaufgaben">LPRINTAUFGABEN</span>
+                <div class="printfooter">
+
+                    Drucke Dir eigene Bl&auml;tter aus oder rechne online auf
+                    <a href="https://www.sikore.org">www.sikore.org</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&copy; 2000-2023
+                </div>
+            </div>
+            <!-- PRINT -->
+
+        </div>
+    </div>
+
+    <!-- LIVE -->
+
+    <div style='display:none'>
+        <div id='inline_content' style='padding:0px; background:#fff'>
+            <div style="text-align:center;margin-top:20px">
+                <img src="sikorep.png" height="30"/>
+                <img height="70" src="fig/fig3_150.png" style="margin-left:15px;margin-right:10px">
+                <img src="livew.png" height="60"/>
+                <br>
+                <span id="livetextlinks"></span>
+
+                ,
+                <span id="livetextrechts"></span>
+            </div>
+            <div id="playhead"></div>
+            <form onreset="return false;" method=none action=none name=liveform>
+                <table class="playtable" align=center border=0 cellspacing=0 cellpadding=2>
+                    <tr>
+                        <td class="playtdi" id="fstart"></td>
+                        <td class="playtdi" id="fop0" align="center" nowrap>
+                            OP ARG
+                            <br>
+                            &nbsp;
+                            <img src=operator_pfeil.png>
+                            &nbsp;
+                        </td>
+                        <td class="playtdi" id="tdi0" nowrap>
+                            <input type="text" name="i0" size="5" onblur="liveblur(0,false)" onfocus="livefocus(0)">
+                            <img name="im0" src="triangle.gif">
+                        </td>
+                        <td class="playtdi" id="fop1" align="center" nowrap>
+                            OP ARG
+                            <br>
+                            &nbsp;
+                            <img src=operator_pfeil.png>
+                            &nbsp;
+                        </td>
+                        <td class="playtdi" id="tdi1" nowrap>
+                            <input type="text" name="i1" size="5" onblur="liveblur(1,false)" onfocus="livefocus(1)">
+                            <img name="im1" src="triangle.gif">
+                        </td>
+                        <td class="playtdi" id="fop2" align="center" nowrap>
+                            OP ARG
+                            <br>
+                            &nbsp;
+                            <img src=operator_pfeil.png>
+                            &nbsp;
+                        </td>
+                        <td class="playtdi" id="tdi2" nowrap>
+                            <input type="text" name="i2" size="5" onblur="liveblur(2,false)" onfocus="livefocus(2)">
+                            <img name="im2" src="triangle.gif">
+                        </td>
+                        <td class="playtdi" id="fop3" align="center" nowrap>
+                            OP ARG
+                            <br>
+                            &nbsp;
+                            <img src=operator_pfeil.png>
+                            &nbsp;
+                        </td>
+                        <td class="playtdi" id="tdi3" nowrap>
+                            <input type="text" name="i3" size="5" onblur="liveblur(3,false)" onfocus="livefocus(3)">
+                            <img name="im3" src="triangle.gif">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="playtdi" id="zeilanf1"></td>
+                        <td class="playtdi" id="fop4" align="center" nowrap>
+                            OP ARG
+                            <br>
+                            &nbsp;
+                            <img src=operator_pfeil.png>
+                            &nbsp;
+                        </td>
+                        <td class="playtdi" id="tdi4" nowrap>
+                            <input type="text" name="i4" size="5" onblur="liveblur(4,false)" onfocus="livefocus(4)">
+                            <img name="im4" src="triangle.gif">
+                        </td>
+                        <td class="playtdi" id="fop5" align="center" nowrap>
+                            OP ARG
+                            <br>
+                            &nbsp;
+                            <img src=operator_pfeil.png>
+                            &nbsp;
+                        </td>
+                        <td class="playtdi" id="tdi5" nowrap>
+                            <input type="text" name="i5" size="5" onblur="liveblur(5,false)" onfocus="livefocus(5)">
+                            <img name="im5" src="triangle.gif">
+                        </td>
+                        <td class="playtdi" id="fop6" align="center" nowrap>
+                            OP ARG
+                            <br>
+                            &nbsp;
+                            <img src=operator_pfeil.png>
+                            &nbsp;
+                        </td>
+                        <td class="playtdi" id="tdi6" nowrap>
+                            <input type="text" name="i6" size="5" onblur="liveblur(6,false)" onfocus="livefocus(6)">
+                            <img name="im6" src="triangle.gif">
+                        </td>
+                        <td class="playtdi" id="fop7" align="center" nowrap>
+                            OP ARG
+                            <br>
+                            &nbsp;
+                            <img src=operator_pfeil.png>
+                            &nbsp;
+                        </td>
+                        <td class="playtdi" id="tdi7" nowrap>
+                            <input type="text" name="i7" size="5" onblur="liveblur(7,false)" onfocus="livefocus(7)">
+                            <img name="im7" src="triangle.gif">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="playtdi" id="zeilanf2"></td>
+                        <td class="playtdi" id="fop8" align="center" nowrap>
+                            OP ARG
+                            <br>
+                            &nbsp;
+                            <img src=operator_pfeil.png>
+                            &nbsp;
+                        </td>
+                        <td class="playtdi" id="tdi8" nowrap>
+                            <input type="text" name="i8" size="5" onblur="liveblur(8,false)" onfocus="livefocus(8)">
+                            <img name="im8" src="triangle.gif">
+                        </td>
+                        <td class="playtdi" id="fop9" align="center" nowrap>
+                            OP ARG
+                            <br>
+                            &nbsp;
+                            <img src=operator_pfeil.png>
+                            &nbsp;
+                        </td>
+                        <td class="playtdi" id="tdi9" nowrap>
+                            <input type="text" name="i9" size="5" onblur="liveblur(9,false)" onfocus="livefocus(9)">
+                            <img name="im9" src="triangle.gif">
+                        </td>
+                        <td class="playtdi" id="fop10" align="center" nowrap>
+                            OP ARG
+                            <br>
+                            &nbsp;
+                            <img src=operator_pfeil.png>
+                            &nbsp;
+                        </td>
+                        <td class="playtdi" id="tdi10" nowrap>
+                            <input type="text" name="i10" size="5" onblur="liveblur(10,false)" onfocus="livefocus(10)">
+                            <img name="im10" src="triangle.gif">
+                        </td>
+                        <td class="playtdi" id="fop11" align="center" nowrap>
+                            OP ARG
+                            <br>
+                            &nbsp;
+                            <img src=operator_pfeil.png>
+                            &nbsp;
+                        </td>
+                        <td class="playtdi" id="tdi11" nowrap>
+                            <input type="text" name="i11" size="5" onblur="liveblur(11,false)" onfocus="livefocus(11)">
+                            <img name="im11" src="triangle.gif">
+                        </td>
+                    </tr>
+                </table>
+                <div id="loesungszeilendiv" style="text-align:center;margin-bottom:10px;margin-top:10px">
+                    <a class="buttonlink" href="javascript:solve(0);" id="ri0">R</a>
+                    <a class="buttonlink" href="javascript:solve(1);" id="ri1">R</a>
+                    <a class="buttonlink" href="javascript:solve(2);" id="ri2">R</a>
+                    <a class="buttonlink" href="javascript:solve(3);" id="ri3">R</a>
+                    <a class="buttonlink" href="javascript:solve(4);" id="ri4">R</a>
+                    <a class="buttonlink" href="javascript:solve(5);" id="ri5">R</a>
+                    <a class="buttonlink" href="javascript:solve(6);" id="ri6">R</a>
+                    <a class="buttonlink" href="javascript:solve(7);" id="ri7">R</a>
+                    <a class="buttonlink" href="javascript:solve(8);" id="ri8">R</a>
+                    <a class="buttonlink" href="javascript:solve(9);" id="ri9">R</a>
+                    <a class="buttonlink" href="javascript:solve(10);" id="ri10">R</a>
+                    <a class="buttonlink" href="javascript:solve(11);" id="ri11">R</a>
+
+                </div>
+                <span id="flivestatus"></span>
+                <span id="flivestatus2">
+                    <input value=0 id="ffehler" type="text" size="2" onfocus="livefocus(12)">
+                    <br>
+                    <br>
+                    <br>
+                </span>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
