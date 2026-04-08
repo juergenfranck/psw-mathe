@@ -1,21 +1,21 @@
 kategorie,emoji,level,story,frage,antwort,einheit,tipp
 Einkaufen,🛒,1,"Ein Brot kostet CHF 1.20. Du gibst der Kassiererin CHF 2.00.","Wie viel Rückgeld bekommst du?",80,Rp.,2.00 − 1.20
 Einkaufen,🛒,1,"Ein Apfel kostet 30 Rp. Du kaufst 3 Äpfel.","Was kostet das zusammen?",90,Rp.,3 × 30
-Einkaufen,🛒,1,"Du hast CHF 5.00. Du kaufst ein Sandwich für CHF 3.50.","Wie viel Geld hast du noch?",150,Rp.,500 − 350
+Einkaufen,🛒,1,"Du hast CHF 5.00. Du kaufst ein Sandwich für CHF 3.50.","Wie viel Geld (in Rappen) hast du noch?",150,Rp.,500 − 350
 Einkaufen,🛒,1,"Ein Kaugummi kostet 20 Rp. Du kaufst 4 Stück.","Was kostet das zusammen?",80,Rp.,4 × 20
 Einkaufen,🛒,1,"Du hast CHF 2.00. Ein Riegel kostet 60 Rp. Du kaufst 3 Stück.","Wie viel Geld hast du nach dem Kauf noch?",20,Rp.,200 − (3 x 60)
 Einkaufen,🛒,1,"Im Kiosk kostet ein Apfelsaft 90 Rp. Du gibst CHF 1.00.","Wie viel Rückgeld bekommst du?",10,Rp.,100 − 90
-Einkaufen,🛒,1,"Ein Bleistift kostet 50 Rp. Du kaufst 2 Bleistifte.","Was kostet das zusammen?",100,Rp.,2 × 50
-Einkaufen,🛒,1,"Du hast CHF 3.00. Du kaufst ein Heft für CHF 1.50.","Wie viel Geld hast du noch?",150,Rp.,300 − 150
-Einkaufen,🛒,2,"Ein Gipfeli kostet 90 Rp. Du kaufst 4 Stück.","Was musst du bezahlen?",360,Rp.,4 × 90
-Einkaufen,🛒,2,"Im Migros kostet ein Jogurt CHF 1.10 und ein Mineralwasser CHF 1.40.","Was kosten beide zusammen?",250,Rp.,110 + 140
+Einkaufen,🛒,1,"Ein Bleistift kostet 50 Rp. Du kaufst 2 Bleistifte.","Was kostet das zusammen?",1.00,Fr.,2 × 50
+Einkaufen,🛒,1,"Du hast CHF 3.00. Du kaufst ein Heft für CHF 1.50.","Wie viel Geld hast du noch?",1.50,Fr.,300 − 150
+Einkaufen,🛒,2,"Ein Gipfeli kostet 90 Rp. Du kaufst 4 Stück.","Was musst du bezahlen?",3.60,Fr.,4 × 90
+Einkaufen,🛒,2,"Im Migros kostet ein Jogurt CHF 1.10 und ein Mineralwasser CHF 1.40.","Was kosten beide zusammen?",2.50,Fr.,110 + 140
 Einkaufen,🛒,2,"Du kaufst 3 Hefte à CHF 1.50. Du gibst CHF 5.00.","Wie viel Rückgeld bekommst du?",50,Rp.,500 − (3 × 150)
-Einkaufen,🛒,2,"Ein Znüni-Paket kostet CHF 2.40. Du kaufst 3 Pakete.","Was kostet das insgesamt?",720,Rp.,3 × 240
-Einkaufen,🛒,2,"Du kaufst eine Flasche Wasser für CHF 1.80 und einen Riegel für 70 Rp.","Wie viel bezahlst du insgesamt?",250,Rp.,180 + 70
-Einkaufen,🛒,2,"Ein Buch kostet CHF 4.50. Du gibst CHF 10.00.","Wie viel Rückgeld (in Rappen) bekommst du?",550,Rp.,1000 − 450
-Einkaufen,🛒,2,"Du kaufst 5 Briefmarken à 85 Rp.","Was kosten alle Briefmarken zusammen?",425,Rp.,5 × 85
-Einkaufen,🛒,2,"Im Volg kostet ein Becher Erdbeeren CHF 3.20. Du kaufst 2 Becher.","Was musst du bezahlen?",6.40,Fr.,2 × 320
-Einkaufen,🛒,3,"An der Chilbi kaufst du 2 Zuckerwatte à CHF 3.50 und 1 Hotdog für CHF 4.50.","Was hast du insgesamt ausgegeben?",11.50,Fr..,(2 × 350) + 450
+Einkaufen,🛒,2,"Ein Znüni-Paket kostet CHF 2.40. Du kaufst 3 Pakete.","Was kostet das insgesamt?",7.20,Fr.,3 × 240
+Einkaufen,🛒,2,"Du kaufst eine Flasche Wasser für CHF 1.80 und einen Riegel für 70 Rp.","Wie viel bezahlst du insgesamt?",2.50,Fr.,180 + 70
+Einkaufen,🛒,2,"Ein Buch kostet CHF 4.50. Du gibst CHF 10.00.","Wie viel Rückgeld (in Rappen) bekommst du?",5.50,Fr.,1000 − 450
+Einkaufen,🛒,2,"Du kaufst 5 Briefmarken à 85 Rp.","Was kosten alle Briefmarken zusammen?",4.25,Fr.,5 × 85
+Einkaufen,🛒,2,"Im Volg kostet ein Becher Erdbeeren CHF 3.20. Du kaufst 2 Becher.","Wie viel musst du bezahlen?",6.40,Fr.,2 × 320
+Einkaufen,🛒,3,"An der Chilbi kaufst du 2 Zuckerwatte à CHF 3.50 und 1 Hotdog für CHF 4.50.","Was hast du insgesamt ausgegeben?",11.50,Fr.,(2 × 350) + 450
 Einkaufen,🛒,3,"Du kaufst 5 Briefmarken à 85 Rp. und bezahlst mit CHF 5.00.","Wie viel Rückgeld erhältst du?",75,Rp.,500 − (5 × 85)
 Einkaufen,🛒,3,"Ein Schulranzen kostet CHF 48.00. Du hast bereits CHF 29.50 gespart.","Wie viel Geld fehlt dir noch?",18.50,Fr.,4800 − 2950
 Einkaufen,🛒,3,"Du kaufst 4 Hefte à CHF 1.20 und einen Klebstift für CHF 2.40.","Was kostet alles zusammen?",7.20,Fr.,(4 × 120) + 240
