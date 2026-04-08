@@ -80,10 +80,10 @@
 
   <!-- START -->
   <div id="start">
-    <div class="hdr"><h1>🌍 Mathe im Alltag</h1><p>Textaufgaben aus der Deutschschweiz</p></div>
+    <div class="hdr"><h1>🌍 Mathematik im Alltag</h1><p>Textaufgaben</p></div>
     <span class="big-emoji">🧃</span>
-    <h2>Wähle dein Level und los!</h2>
-    <p>Lies die Aufgaben genau durch und rechne im Kopf oder auf Papier.</p>
+    <h2>Wähle dein Level sowie die Anzahl Aufgaben … und dann los!</h2>
+    <p>Tipp: Lies die Aufgaben genau durch und rechne im Kopf oder auf Papier. Du hast Zeit!</p>
 
     <div class="option-group">
       <label>🎯 Schwierigkeitsgrad:</label>
@@ -259,7 +259,7 @@ function checkAnswer(){
     fb.textContent='✅ Richtig! Super gemacht!';
     fb.className='feedback ok';
   } else {
-    fb.textContent=`❌ Leider falsch. Richtige Antwort: ${displayAns}`;
+    fb.textContent=`❌ Leider falsch. Die richtige Antwort lautet: ${displayAns}`;
     fb.className='feedback nok';
     document.getElementById('hint').textContent=`💡 Tipp: ${t.tipp}`;
   }
